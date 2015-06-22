@@ -47,4 +47,17 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.0.0'
+
+  gem 'ffaker'
+
+  gem 'pry-rails'
+  gem 'domp'
+
 end
+
+gem 'dotenv-rails'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-instagram'

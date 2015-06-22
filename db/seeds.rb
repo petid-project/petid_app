@@ -1,7 +1,49 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'ffaker'
+
+p "Starting seed..."
+
+p "Destroying old data..."
+#Destroy existing data
+Report.destroy_all
+Pet.destroy_all
+User.destroy_all
+
+p "Creating new users..."
+
+(1..5).each do
+	user_params = {}
+	user_params[:email] = FFaker::Internet.email
+	user_params[:name] = FFaker::Name.name
+	user_params[:city] = FFaker::AddressUS.city
+	user_params[:state] = FFaker::AddressUS.state_abbr
+	user_params[:phone] = FFaker::PhoneNumber.phone_number
+	user_params[:password] = "supersecure"
+	user_params[:password_confirmation] = "supersecure"
+	new_user = User.create(user_params)
+
+	(1..5).each do
+		pet_params = {}
+		pet_params[:name] = FFaker::Name.first_name
+		pet_params[:pet_type] = "dog"
+		pet_params[:breed] = "French bulldog"
+		pet_params[:color] = FFaker::Color.name
+		pet_params[:birth_year] = FFaker::Vehicle.year
+		pet_params[:weight] = rand(1..30)
+		pet_params[:user_id] = new_user.id
+		pet_params[:chip_id] = new_user.id + 1
+		pet_params[:description] = FFaker::BaconIpsum.sentences
+		new_pet = Pet.create(pet_params)
+	end
+end
+
+(1..3).each do
+	pet = Pet.first
+	report_params = {}
+	report_params[:date_of_loss] = FFaker::Time.date
+	report_params[:location] = FFaker::AddressUS.street_address, FFaker::AddressUS.city, FFaker::AddressUS.state_abbr
+	report_params[:pet_id] = pet.id + 1
+	report_params[:user_id] = pet.user_id + 1
+	report_params[:description] = FFaker::Lorem.sentences
+	report_params[:notes] = FFaker::Lorem.sentences
+	new_report = Report.create(report_params)
+end
