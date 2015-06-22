@@ -1,0 +1,27 @@
+<% @user.pets.each do |pet| %>
+
+	<div class="media">
+	  <div class="media-left">
+	    <a href="#">
+	      <img class="media-object custom-dog" src="http://static1.squarespace.com/static/52ed8c2ce4b09f388981c1e7/t/52ef2984e4b0358dd4df714c/1391405444963/DOG+ICON.png" alt="placeholder dog">
+	    </a>
+	  </div>
+	  <div class="media-body">
+		  <div class="row">
+		  	<div class="col-md-2">
+		    	<h4 class="media-heading"><%= pet.name %></h4>
+		    	<ul>
+		    		<li><strong>Breed:</strong><%= pet.breed %></li>
+		    	</ul>
+		    </div>
+		    <div class="col-md-2">
+		    	<ul>
+		    		<li></li>
+		    		<li><strong>Age:</strong><%= Time.now.year - pet.birth_year.to_i %></li>
+		    	</ul>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+<% end %>
