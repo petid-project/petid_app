@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date of loss:</strong>
+  <%= @report.date_of_loss %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @report.location %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @report.user %>
+</p>
+
+<p>
+  <strong>Pet:</strong>
+  <%= @report.pet %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @report.description %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @report.notes %>
+</p>
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>
