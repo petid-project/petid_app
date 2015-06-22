@@ -4,8 +4,8 @@ p "Starting seed..."
 
 p "Destroying old data..."
 #Destroy existing data
-Pet.destroy_all
 Report.destroy_all
+Pet.destroy_all
 User.destroy_all
 
 p "Creating new users..."
@@ -20,11 +20,11 @@ p "Creating new users..."
 	user_params[:password] = "supersecure"
 	user_params[:password_confirmation] = "supersecure"
 	new_user = User.create(user_params)
-	
+
 	(1..5).each do
 		pet_params = {}
 		pet_params[:name] = FFaker::Name.first_name
-		pet_params[:pet_type] = "blah"
+		pet_params[:pet_type] = "dog"
 		pet_params[:breed] = "French bulldog"
 		pet_params[:color] = FFaker::Color.name
 		pet_params[:birth_year] = FFaker::Vehicle.year
@@ -46,4 +46,4 @@ end
 	report_params[:description] = FFaker::Lorem.sentences
 	report_params[:notes] = FFaker::Lorem.sentences
 	new_report = Report.create(report_params)
-end 
+end

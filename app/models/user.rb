@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  def self.create_from_omniauth(params)
+    attributes = {
+      email: params['info']['email'],
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise  :database_authenticatable, :registerable,
