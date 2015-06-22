@@ -266,5 +266,5 @@ Devise.setup do |config|
   #Add your ID and secret here
   #ID first, secret second
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET']
-
+  # config.omniauth :google, ENV['GOOGLE_APP_ID'], ENV['GOOGLE_SECRET']
 end
