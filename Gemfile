@@ -50,4 +50,14 @@ group :development, :test do
 
   gem 'ffaker'
 
+  gem 'pry-rails'
+  gem 'domp'
+
 end
+
+gem 'dotenv-rails'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-instagram'
