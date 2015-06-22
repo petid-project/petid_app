@@ -4,9 +4,9 @@ p "Starting seed..."
 
 p "Destroying old data..."
 #Destroy existing data
-User.destroy_all
 Pet.destroy_all
 Report.destroy_all
+User.destroy_all
 
 p "Creating new users..."
 
@@ -24,7 +24,7 @@ p "Creating new users..."
 	(1..5).each do
 		pet_params = {}
 		pet_params[:name] = FFaker::Name.first_name
-		pet_params[:type] = "dog"
+		pet_params[:pet_type] = "blah"
 		pet_params[:breed] = "French bulldog"
 		pet_params[:color] = FFaker::Color.name
 		pet_params[:birth_year] = FFaker::Vehicle.year
@@ -37,12 +37,13 @@ p "Creating new users..."
 end
 
 (1..3).each do
+	pet = Pet.first
 	report_params = {}
 	report_params[:date_of_loss] = FFaker::Time.date
 	report_params[:location] = FFaker::AddressUS.street_address, FFaker::AddressUS.city, FFaker::AddressUS.state_abbr
-	report_params[:pet_id] = rand(1..5)
-	pet = Pet.find(report_params[:pet_id])
-	report_params[:user_id] = pet.user_id
+	report_params[:pet_id] = pet.id + 1
+	report_params[:user_id] = pet.user_id + 1
 	report_params[:description] = FFaker::Lorem.sentences
 	report_params[:notes] = FFaker::Lorem.sentences
+	new_report = Report.create(report_params)
 end 
