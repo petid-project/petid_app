@@ -48,3 +48,8 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.0.0'
 end
+
+gem 'dotenv-rails'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
