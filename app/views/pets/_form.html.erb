@@ -1,5 +1,5 @@
-<%= form_for Pet.new do |f| %>
-  <% if Pet.new.errors.any? %>
+<%= form_for(@pet, remote: true, html: {id: "pet_form"}) do |f| %>
+  <% if @pet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
 
@@ -50,7 +50,7 @@
       <%= f.text_field :image_url, class: "form-control" %>
     </div>
     <div class="actions">
-      <%= f.submit "Add pet", class: "btn btn-primary btn-block" %>
+      <%= f.submit "Add pet", class: "btn btn-primary btn-block", id: "addPet" %>
     </div>
   </div>
 <% end %>
