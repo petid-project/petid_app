@@ -14,8 +14,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
-    pet = Pet.find(params[:id])
-    if current_user == pet.user
+    if current_user == @pet.user
       render :edit
     else
       redirect_to @pet, alert: "Sorry, only the owner of this pet can edit its information."
