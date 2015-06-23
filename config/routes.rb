@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get "/pets/:id/report_lost", to: "reports#new",as: "new_report"
 
   resources :pets
-  resources :reports
+  resources :reports, except: [:update]
   resources :users
+
+  patch "/reports/:id", to: 'reports#update', as: "update_report"
 
   root 'welcome#index'
 
