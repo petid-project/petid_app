@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   # GET /reports
   # GET /reports.json
@@ -73,6 +73,10 @@ class ReportsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def contact_user
+    @report = Report.find(params[:id])
+    @user = @report.user
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -84,4 +88,5 @@ class ReportsController < ApplicationController
     def report_params
       params.require(:report).permit(:reward, :date_of_loss, :location, :user_id, :pet_id, :description, :notes, :is_active)
     end
+
 end
