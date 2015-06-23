@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   get "/pets/:id/report_lost", to: "reports#new", as: "new_report"
 
-  resources :pets
+  resources :pets, except: [:index]
   resources :reports, except: [:update]
-  resources :users
+  resources :users, except: [:index]
 
   patch "/reports/:id", to: 'reports#update', as: "update_report"
 

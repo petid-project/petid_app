@@ -49,5 +49,8 @@
   <%= @pet.image_url %>
 </p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<% if current_user == @pet.user %>
+  <%= link_to 'Edit', edit_pet_path(@pet) %> |
+<% end %>
+
 <%= link_to 'Back', pets_path %>
