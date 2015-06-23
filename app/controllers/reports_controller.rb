@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /reports
   # GET /reports.json
@@ -73,6 +73,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:date_of_loss, :location, :user_id, :pet_id, :description, :notes, :is_active)
+      params.require(:report).permit(:reward, :date_of_loss, :location, :user_id, :pet_id, :description, :notes, :is_active)
     end
 end
