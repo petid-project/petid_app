@@ -9,17 +9,24 @@
 	  </div>
 	  <div class="media-body">
 		  <div class="row">
-		  	<div class="col-md-2">
-		    	<h4 class="media-heading"><%= pet.name %></h4>
-		    	<ul>
-		    		<li><strong>Breed:</strong><%= pet.breed %></li>
+		  	<div class="col-xs-3">
+		    	<h3 class="media-heading"> <%= pet.pet_type %> </h3>
+		    	<ul id="left-list">
+		    		<li><strong>Name: </strong><%= pet.name %> </li>
+		    		<li><strong>Breed: </strong><%= pet.breed %> </li>
+		    </div>
+		    <div class="col-xs-3">
+		    	<ul id="center-list">
+		    		<li><strong>Age: </strong> <%= Time.now.year - pet.birth_year.to_i %></li>
+		    		<li><strong>Weight: </strong><%= pet.weight %> </li>
+		    		<li><strong>Color: </strong> <%= pet.color%></li>
+		    		<li><strong>Rfid ID: </strong> <%= pet.chip_id %> </li>
 		    	</ul>
 		    </div>
-		    <div class="col-md-2">
-		    	<ul>
-		    		<li></li>
-		    		<li><strong>Age:</strong><%= Time.now.year - pet.birth_year.to_i %></li>
-		    	</ul>
+		    <div class="col-xs-5">
+		    	<p id="right-list"> <Strong> Description: </strong></br>
+		    		<%= pet.description %>
+		    	</p>
 		    </div>
 		  </div>
 		</div>

@@ -1,8 +1,6 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  respond_to :html, :js
-
 
   # GET /pets
   # GET /pets.json
@@ -73,6 +71,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:name, :type, :breed, :color, :weight, :birth_year, :user_id, :chip_id, :description, :image_url)
+      params.require(:pet).permit(:name, :pet_type, :breed, :color, :weight, :birth_year, :user_id, :chip_id, :description, :image_url)
     end
 end
