@@ -16,10 +16,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       	<li><a href="<%= new_report_path %>">Report lost pet</a></li>
-      	<li><a href="#">Login</a></li>
-      	<li><a href="<%= new_user_path %>">Sign up</a></li>
-          </ul>
-        </li>
+      	<% if user_signed_in? %>
+          <li><a href="<%= user_path(current_user.id) %>">Welcome back, <%= current_user.name %></a></li>
+          <li><a href="<%= sign_out_path %>">Log out</a></li>
+        <% else %>
+          <li><a href="<%= new_user_session_path %>">Login</a></li>
+      	   <li><a href="<%= new_user_registration_path %>">Sign up</a></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
