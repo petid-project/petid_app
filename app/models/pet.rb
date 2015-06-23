@@ -1,6 +1,7 @@
 class Pet < ActiveRecord::Base
   validates :name, presence: true
   belongs_to :user
+  has_many :reports
 
   # This method associates the attribute ":image" with a file attachment
   has_attached_file :image,

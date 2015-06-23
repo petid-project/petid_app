@@ -1,11 +1,11 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    @reports = Report.active_reports
   end
 
   # GET /reports/1
@@ -15,8 +15,17 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
-    @report = Report.new
-    @pet = Pet.find(params[:id])
+    @pet_id = Pet.find(params[:id])
+
+    if is_lost? @pet_id
+      report_id = @pet_id.reports.last.id
+
+      flash[:alert] = "There is already a report filed for this pet."
+      redirect_to report_path(report_id)
+    else
+      @report = Report.new
+      @pet = Pet.find(params[:id])
+    end
   end
 
   # GET /reports/1/edit
@@ -46,7 +55,7 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
@@ -64,6 +73,10 @@ class ReportsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def contact_user
+    @report = Report.find(params[:id])
+    @user = @report.user
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -73,6 +86,7 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:reward, :date_of_loss, :location, :user_id, :pet_id, :description, :notes)
+      params.require(:report).permit(:reward, :date_of_loss, :location, :user_id, :pet_id, :description, :notes, :is_active)
     end
+
 end

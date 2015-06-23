@@ -51,9 +51,10 @@ ActiveRecord::Schema.define(version: 20150623192825) do
     t.integer  "pet_id"
     t.text     "description"
     t.text     "notes"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "reward"
+    t.boolean  "is_active",    default: true
   end
 
   add_index "reports", ["pet_id"], name: "index_reports_on_pet_id", using: :btree
