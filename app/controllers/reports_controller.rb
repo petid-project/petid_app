@@ -16,16 +16,19 @@ class ReportsController < ApplicationController
   # GET /reports/new
   def new
     @report = Report.new
+    @pet = Pet.find(params[:id])
   end
 
   # GET /reports/1/edit
   def edit
+    @pet = @report.pet
   end
 
   # POST /reports
   # POST /reports.json
   def create
     @report = Report.new(report_params)
+    @report.user = current_user
 
     respond_to do |format|
       if @report.save

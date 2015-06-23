@@ -45,5 +45,6 @@ end
 	report_params[:user_id] = pet.user_id + 1
 	report_params[:description] = FFaker::Lorem.sentences
 	report_params[:notes] = FFaker::Lorem.sentences
+	report_params[:reward] = "$ " + rand(0..200).to_s
 	new_report = Report.create(report_params)
 end
