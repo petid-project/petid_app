@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :pets
+  has_many :reports
   
   def self.create_from_omniauth(params)
     attributes = {
