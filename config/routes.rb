@@ -10,13 +10,10 @@ Rails.application.routes.draw do
   resources :pets
   resources :reports, except: [:update]
   resources :users
-<<<<<<< HEAD
+  
   get "/reports/:id/contact_user", to: "reports#contact_user", as: "contact_user"
-=======
 
   patch "/reports/:id", to: 'reports#update', as: "update_report"
-
->>>>>>> c8e999d28bc21afbc3d97bfca11df1e3147aac7d
   root 'welcome#index'
 
 end
