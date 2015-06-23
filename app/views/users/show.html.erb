@@ -1,52 +1,5 @@
-<p id="notice"><%= notice %></p>
+<div id="top-container">
+<%= render 'user_info' %>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Uid:</strong>
-  <%= @user.uid %>
-</p>
-
-<p>
-  <strong>Provider:</strong>
-  <%= @user.provider %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @user.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @user.state %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <strong>Oauth token:</strong>
-  <%= @user.oauth_token %>
-</p>
-
-<p>
-  <strong>Oauth expires at:</strong>
-  <%= @user.oauth_expires_at %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-
-<%= render 'user_pets' %>
-
+<%= render 'user_pets' || "No pets available. Click here to add a pet!"%>
