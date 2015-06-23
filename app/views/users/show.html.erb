@@ -1,18 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
-</p>
-
-<p>
-  <strong>Uid:</strong>
-  <%= @user.uid %>
-</p>
-
-<p>
-  <strong>Provider:</strong>
-  <%= @user.provider %>
 </p>
 
 <p>
@@ -35,18 +23,14 @@
   <%= @user.phone %>
 </p>
 
-<p>
-  <strong>Oauth token:</strong>
-  <%= @user.oauth_token %>
-</p>
 
-<p>
-  <strong>Oauth expires at:</strong>
-  <%= @user.oauth_expires_at %>
-</p>
+<%= link_to 'Edit', edit_user_path(@user), remote: true %> |
+<%= link_to 'Back', users_path %> |
+<%= link_to 'Add Pet', "#", id: "yourButton" %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div id="addPet">
+  <%= render "pets/form" %>
+</div>
 
 <%= render 'user_pets' %>
 
