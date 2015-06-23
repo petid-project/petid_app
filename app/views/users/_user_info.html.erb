@@ -9,3 +9,6 @@
 <p>
   <strong>Location </strong> <%= @user.city %>, <%= @user.state %>
 </p>
+<% if current_user == @user %>
+  <%= link_to 'Edit profile', edit_user_path(current_user), remote: true %>
+<% end %>

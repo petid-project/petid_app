@@ -1,4 +1,17 @@
-<h4>Your pets</h4>
+<div class="row" id="pets-container">
+	<div class="col-md-6 col-md-offset-3">
+		<h2 id="pets-title">Your pets</h2>
+	</div>
+	<div class="col-md-1 col-md-offset-2">
+	 <%= link_to 'Add Pet', new_pet_path, class: "pull-right link-btn", id: "userPet", remote: true %>
+	</div>
+</div>
+
+	<div id="newPet">
+  		<%= render 'pets/form' %>
+	</div>
+	<div id="newPetForm" style="display:none;"></div>
+
 <% @user.pets.each do |pet| %>
 	<div id="userPets">
 	<div class="media">
@@ -9,13 +22,13 @@
 	  </div>
 	  <div class="media-body">
 		  <div class="row">
-		  	<div class="col-xs-3">
+		  	<div class="col-md-2">
 		    	<h3 class="media-heading"> <%= pet.pet_type %> </h3>
 		    	<ul id="left-list">
 		    		<li><strong>Name: </strong><%= pet.name %> </li>
 		    		<li><strong>Breed: </strong><%= pet.breed %> </li>
 		    </div>
-		    <div class="col-xs-3">
+		    <div class="col-md-2">
 		    	<ul id="center-list">
 		    		<li><strong>Age: </strong> <%= Time.now.year - pet.birth_year.to_i %></li>
 		    		<li><strong>Weight: </strong><%= pet.weight %> </li>
@@ -23,13 +36,13 @@
 		    		<li><strong>Rfid ID: </strong> <%= pet.chip_id %> </li>
 		    	</ul>
 		    </div>
-		    <div class="col-xs-5">
+		    <div class="col-md-4">
 		    	<p id="right-list"> <Strong> Description: </strong></br>
 		    		<%= pet.description %>
 		    	</p>
 		    </div>
-		    <div class="col-xs-1">
-		    	<%= link_to "Report lost", new_report_path(pet.id) %>
+		    <div class="col-md-3 pull-right">
+		    	<%= link_to "Report lost", new_report_path(pet.id), class: "link-btn", id: "report-lost" %>
 		    </div>
 		  </div>
 		</div>

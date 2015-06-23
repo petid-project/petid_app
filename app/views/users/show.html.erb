@@ -2,17 +2,4 @@
 <%= render 'user_info' %>
 </div>
 
-<% if current_user == @user %>
-  <%= link_to 'Edit profile', edit_user_path(current_user), remote: true %> |
-  <%= link_to 'Add Pet', new_pet_path, id: "userPet", remote: true %> | 
-<% end %>
-
-<%= link_to 'Back', users_path %>
-
-<div id="newPet">
-  <%= render 'pets/form' %>
-</div>
-
-<div id="newPetForm" style="display:none;"></div>
-
 <%= render 'user_pets' || "No pets available. Click here to add a pet!"%>
