@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :pets
   resources :reports
   resources :users
-
+  get "/reports/:id/contact_user", to: "reports#contact_user", as: "contact_user"
   root 'welcome#index'
 
 end

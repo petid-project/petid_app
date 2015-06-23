@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>Listing Reports</h1>
 
 <table class="table table-striped display" id="table_id">
@@ -10,6 +11,7 @@
       <th>User</th>
       <th>Pet</th>
       <th>Reward</th>
+      <th>Report Found</th>
       <th></th>
       <th>Edit</th>
       <th>Remove</th>
@@ -25,6 +27,7 @@
         <td><%= report.user.name %></td>
         <td><%= report.pet.name %></td>
         <td><%= report.reward %></td>
+        <td><%= link_to 'Contact Owner', contact_user_path(report.id) %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to  edit_report_path(report) do %> 
           <span class='glyphicon glyphicon-pencil'></span>
