@@ -15,8 +15,16 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
-    @report = Report.new
-    @pet = Pet.find(params[:id])
+    pet_id = Pet.find(params[:id])
+    report_id = pet_id.reports.last.id
+
+    if is_lost? pet_id
+      flash[:alert] = "There is already a report filed for this pet."
+      redirect_to report_path(report_id)
+    else
+      @report = Report.new
+      @pet = Pet.find(params[:id])
+    end
   end
 
   # GET /reports/1/edit

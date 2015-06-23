@@ -41,15 +41,14 @@
 		    		<%= pet.description %>
 		    	</p>
 		    </div>
-
-		    <% if current_user == @user %>
-		    	<div class="col-md-3 pull-right">
-		    		<%= link_to "Report lost", new_report_path(pet.id), class: "link-btn", id: "report-lost" %>
-		    	</div>
-		    	<% if is_lost? pet.id %>
-					<%= button_to 'Found', update_report_path(pet.report.id), params: {'report[is_active]' => false }, method: :patch %>
-		    	<% end %>		
-		    <% end %>
+		    
+		    <div class="col-md-3 pull-right">
+		    	<% if (current_user == @user) && (is_lost? pet.id) %>
+					<%= button_to 'Found', update_report_path(pet.reports.last.id), params: {'report[is_active]' => false }, method: :patch, class: "button" %>
+		    	<% else %>
+					<%= link_to "Report lost", new_report_path(pet.id), class: "link-btn button", id: "report-lost" %>
+		    	<% end %>
+		    </div>
 		  </div>
 		</div>
 	</div>

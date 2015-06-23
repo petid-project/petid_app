@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   # devise_scope :user do get "/some/route" => "some_devise_controller" end
 
-  get "/pets/:id/report_lost", to: "reports#new",as: "new_report"
+  get "/pets/:id/report_lost", to: "reports#new", as: "new_report"
 
   resources :pets
   resources :reports, except: [:update]
