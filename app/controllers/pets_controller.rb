@@ -2,12 +2,6 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  # GET /pets
-  # GET /pets.json
-  def index
-    @pets = Pet.all
-  end
-
   # GET /pets/1
   # GET /pets/1.json
   def show
@@ -20,6 +14,11 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    if current_user == @pet.user
+      render :edit
+    else
+      redirect_to @pet, alert: "Sorry, only the owner of this pet can edit its information."
+    end
   end
 
   # POST /pets

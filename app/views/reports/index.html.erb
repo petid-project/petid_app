@@ -26,10 +26,15 @@
         <td><%= report.reward %></td>
         <td><%= link_to 'Contact Owner', contact_user_path(report.id) %></td>
         <td><%= link_to 'Show', report %></td>
-        <td><%= link_to  edit_report_path(report) do %> 
-          <span class='glyphicon glyphicon-pencil'></span>
+        <% if current_user == report.user %>
+          <td><%= link_to  edit_report_path(report) do %> 
+            <span class='glyphicon glyphicon-pencil'></span>
               <% end %></td>
-        <td><%= link_to report, method: :delete, data: { confirm: 'Are you sure?' } do %> <span class='glyphicon glyphicon-remove-circle'></span><% end %></td>
+          <td><%= link_to report, method: :delete, data: { confirm: 'Are you sure?' } do %> <span class='glyphicon glyphicon-remove-circle'></span><% end %></td>
+          <% else %>
+          <td></td>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

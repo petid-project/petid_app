@@ -18,19 +18,23 @@ class ReportsController < ApplicationController
     @pet_id = Pet.find(params[:id])
 
     if is_lost? @pet_id
-      report_id = @pet_id.reports.last.id
-
-      flash[:alert] = "There is already a report filed for this pet."
-      redirect_to report_path(report_id)
-    else
+      @report_id = @pet_id.reports.last.id
+      redirect_to report_path(@report_id), alert: "There is already a report filed for this pet."
+    elsif current_user == @pet_id.user
       @report = Report.new
       @pet = Pet.find(params[:id])
+    else
+      redirect_to reports_path, alert: "Only the user can report a lost pet."
     end
   end
 
   # GET /reports/1/edit
   def edit
-    @pet = @report.pet
+    if current_user == @report.user
+      @pet = @report.pet
+    else
+      redirect_to @report, alert: "Sorry, only the user who reported this can edit it."
+    end
   end
 
   # POST /reports
