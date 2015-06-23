@@ -15,7 +15,6 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="<%= new_report_path %>">Report lost pet</a></li>
       	<% if user_signed_in? %>
           <li><a href="<%= user_path(current_user.id) %>">Welcome back, <%= current_user.name %></a></li>
           <li><a href="<%= sign_out_path %>">Log out</a></li>
