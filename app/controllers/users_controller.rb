@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @pet = Pet.new
   end
 
   # GET /users/1/edit
