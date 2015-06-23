@@ -9,8 +9,6 @@
       <th>Location</th>
       <th>User</th>
       <th>Pet</th>
-      <th>Description</th>
-      <th>Notes</th>
       <th></th>
       <th>Edit</th>
       <th>Remove</th>
@@ -23,10 +21,8 @@
       <tr>
         <td><%= report.date_of_loss.strftime("%m/%d/%Y") %></td>
         <td><%= report.location %></td>
-        <td><%= report.user %></td>
-        <td><%= report.pet %></td>
-        <td><%= report.description %></td>
-        <td><%= report.notes %></td>
+        <td><%= report.user.name %></td>
+        <td><%= report.pet.name %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to  edit_report_path(report) do %> 
           <span class='glyphicon glyphicon-pencil'></span>
