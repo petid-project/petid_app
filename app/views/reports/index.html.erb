@@ -8,6 +8,7 @@
       <th>User</th>
       <th>Pet</th>
       <th>Reward</th>
+      <th>Report Found</th>
       <th></th>
       <th>Edit</th>
       <th>Remove</th>
@@ -23,6 +24,7 @@
         <td><%= report.user.name %></td>
         <td><%= report.pet.name %></td>
         <td><%= report.reward %></td>
+        <td><%= link_to 'Contact Owner', contact_user_path(report.id) %></td>
         <td><%= link_to 'Show', report %></td>
         <% if current_user == report.user %>
           <td><%= link_to  edit_report_path(report) do %> 
