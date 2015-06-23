@@ -64,21 +64,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def create_pet
-    @user_pet = Pet.new(pet_params)
-    @user_pet.user = current_user
-
-    respond_to do |format|
-      if @pet.save
-        format.html { redirect_to @user_pet.user, notice: 'Pet was successfully created.' }
-        format.json { render :show, status: :created, location: @pet }
-      else
-        format.html { redirect_to @pet.user }
-        format.json { render json: @pet.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
