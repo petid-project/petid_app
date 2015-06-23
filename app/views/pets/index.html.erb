@@ -34,7 +34,7 @@
         <td><%= pet.user %></td>
         <td><%= pet.chip_id %></td>
         <td><%= pet.description %></td>
-        <td><%= pet.image_url %></td>
+        <td><%= pet.image.url %></td>
         <td><%= link_to 'Report Lost', new_report_path(pet) %></td>
         <td><%= link_to 'Show', pet %></td>
         <td><%= link_to 'Edit', edit_pet_path(pet) %></td>

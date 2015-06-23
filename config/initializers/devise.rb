@@ -266,7 +266,6 @@ Devise.setup do |config|
   #Add your ID and secret here
   #ID first, secret second
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET']
-  require 'omniauth-google-oauth2'
   config.omniauth :google_oauth2, ENV['GOOGLE_APP_ID'], ENV['GOOGLE_SECRET'], { access_type: "offline", approval_prompt: "" }
   config.omniauth :instagram, ENV['INSTAGRAM_APP_ID'], ENV['INSTAGRAM_SECRET']
 end
