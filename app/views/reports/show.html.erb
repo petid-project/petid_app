@@ -2,7 +2,7 @@
 
 <p>
   <strong>Date of loss:</strong>
-  <%= @report.date_of_loss %>
+  <%= @report.date_of_loss.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
@@ -12,12 +12,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @report.user %>
+  <%= @report.user.name %>
 </p>
 
 <p>
   <strong>Pet:</strong>
-  <%= @report.pet %>
+  <%= @report.pet.name %>
 </p>
 
 <p>
