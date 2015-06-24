@@ -23,8 +23,15 @@ $(document).ready( function () {
 }).hover( function() {
     $(this).toggleClass('hover');
 });
+
 }).on("click","#userPet",function(){
-  $("#newPet").toggle();
+	if ($(this).hasClass('open')) {
+  	$("#newPet").slideUp(350);
+  	$(this).removeClass('open');
+  } else {
+  	$(this).addClass('open');
+  	$("#newPet").slideDown(350);
+  }
 });
 
 

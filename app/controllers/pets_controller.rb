@@ -31,6 +31,7 @@ class PetsController < ApplicationController
       if @pet.save
         format.html { redirect_to @pet.user, notice: 'Pet was successfully created.' }
         format.json { render :show, status: :created, location: @pet }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @pet.errors, status: :unprocessable_entity }
@@ -71,5 +72,8 @@ class PetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
       params.require(:pet).permit(:name, :pet_type, :breed, :color, :weight, :birth_year, :user_id, :chip_id, :description, :image)
+    end
+
+    def test_params
     end
 end
