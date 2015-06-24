@@ -78,11 +78,18 @@ class ReportsController < ApplicationController
     end
   end
 
-  def contact_user
+  def show_contact_user
     @report = Report.find(params[:id])
     @user = @report.user
-    MyMailer.send_found_pet_message(@report).deliver_now
   end
+
+  def process_contact_user
+    @content = {reporter_name: params[:reporter_name],email: params[:email], phone: params[:phone], message: params[:message]}
+    @report = Report.find(params[:id])
+    MyMailer.send_found_pet_message(@report,@content).deliver_now
+    return redirect_to @report, notice: 'Message sent'
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

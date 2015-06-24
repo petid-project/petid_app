@@ -15,11 +15,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    if current_user == @user
-      render :edit
-    else
-      redirect_to @user, alert: "Sorry, you don't have permission to edit this profile."
-    end
+    return redirect_to @user, alert: "Sorry, you don't have permission to edit this profile." unless current_user == @user
   end
 
   # POST /users
@@ -40,14 +36,13 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    params[:user].delete(:password) if params[:user][:password].blank?
+    params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
+    if @user.update(user_params)
+      sign_in(@user, :bypass => true)
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -71,4 +66,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :uid, :provider, :password, :password_confirmation, :name, :city, :state, :phone, :oauth_token, :oauth_expires_at)
     end
+
 end

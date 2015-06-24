@@ -1,40 +1,27 @@
-<h1>Listing Reports</h1>
+<h1>Find lost Pet Reports</h1>
 
 <table class="table table-striped display" id="table_id">
   <thead>
     <tr>
-      <th>Date of loss</th>
+      <th>Image</th>
+      <th>Pet Name</th>
       <th>Location</th>
-      <th>User</th>
-      <th>Pet</th>
-      <th>Reward</th>
-      <th>Report Found</th>
-      <th></th>
-      <th>Edit</th>
-      <th>Remove</th>
-      <th colspan="3"></th>
+      <th>Contact Owner</th>
+      <th>Pet Details</th>
+      
     </tr>
   </thead>
 
   <tbody>
     <% @reports.each do |report| %>
       <tr>
-        <td><%= report.date_of_loss.strftime("%m/%d/%Y") %></td>
-        <td><%= report.location %></td>
-        <td><%= report.user.name %></td>
+        <td>
+          <img class="media-object custom-dog" src="<%= report.pet.image.url(:thumb) %>" alt="placeholder dog">
+        </td>
         <td><%= report.pet.name %></td>
-        <td><%= report.reward %></td>
-        <td><%= link_to 'Contact Owner', contact_user_path(report.id) %></td>
-        <td><%= link_to 'Show', report %></td>
-        <% if current_user == report.user %>
-          <td><%= link_to  edit_report_path(report) do %> 
-            <span class='glyphicon glyphicon-pencil'></span>
-              <% end %></td>
-          <td><%= link_to report, method: :delete, data: { confirm: 'Are you sure?' } do %> <span class='glyphicon glyphicon-remove-circle'></span><% end %></td>
-          <% else %>
-          <td></td>
-          <td></td>
-        <% end %>
+        <td><%= report.location %></td>
+        <td><%= link_to 'Contact Owner', show_contact_user_path(report.id) %></td>
+        <td><%= link_to 'Pet Details', report %></td>
       </tr>
     <% end %>
   </tbody>

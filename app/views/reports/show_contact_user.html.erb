@@ -1,0 +1,24 @@
+<h1>Contact Pet Owner</h1>
+
+<%= form_tag process_contact_user_path(@report), method: 'post' do %>
+	<div class="field">
+		Name<br />
+    <%= text_field_tag :reporter_name %>
+  </div>
+	<div class="field">
+		Email<br />
+    <%= email_field_tag :email %>
+  </div>
+  <div class="field">
+		Phone Number<br />
+    <%= phone_field_tag :phone %>
+  </div>
+	<div class="field">
+		Message<br />
+    <%= text_area_tag :message, nil, rows: 10, cols: 25 %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Send", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
