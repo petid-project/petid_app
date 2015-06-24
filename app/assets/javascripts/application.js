@@ -23,10 +23,7 @@ $(document).ready( function () {
 }).hover( function() {
     $(this).toggleClass('hover');
 });
-} );
-
-
-$(document).on("click","#userPet",function(){
+}).on("click","#userPet",function(){
   $("#newPet").toggle();
 });
 
