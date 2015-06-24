@@ -25,12 +25,12 @@ $(document).ready( function () {
 });
 
 }).on("click","#userPet",function(){
-	if ($(this).hasClass('open')) {
-  	$("#newPet").slideUp(350);
-  	$(this).removeClass('open');
+  if ($(this).hasClass('open')) {
+    $("#newPet").slideUp(350);
+    $(this).removeClass('open');
   } else {
-  	$(this).addClass('open');
-  	$("#newPet").slideDown(350);
+    $(this).addClass('open');
+    $("#newPet").slideDown(350);
   }
 });
 
