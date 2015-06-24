@@ -19,11 +19,11 @@
 		<tbody>
 			<% @user.pets.each do |pet| %>
 				<tr class="pet-rows custom">
-					<td>
+					<td class="clickable">
 						<a href="<%= pet_path(pet) %>"><img src="<%= pet.image.url(:thumb) %>" alt="Image of <%= pet.name %>" class="img-thumbnail" /></a>
 					</td>
-					<td><%= pet.name %></td>
-					<td><%= pet.pet_type %></td>
+					<td class="clickable"><%= pet.name %></td>
+					<td class="clickable"><%= pet.pet_type %></td>
 					<td class="group">
 						<% if current_user == @user %>
 		          <%= link_to  edit_pet_path(pet) do %>
