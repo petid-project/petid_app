@@ -77,9 +77,11 @@ class ReportsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   def contact_user
     @report = Report.find(params[:id])
     @user = @report.user
+    MyMailer.send_found_pet_message(@report).deliver_now
   end
 
   private
