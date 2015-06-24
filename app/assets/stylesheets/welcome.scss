@@ -1,8 +1,19 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 #main-content {
-	background-color: pink;
-	padding-bottom: 20rem;
+    width: 100%;
+    height: 100px;
+}
+#main-content img {
+	  width: 100%;
+    height: auto;
+}
+h1.splash-custom {
+  color: white;
+}
+h2.splash-custom {
+	color: white;
+}
+
+.splash-custom {
+	color: white;
+	text-align: center;
 }
