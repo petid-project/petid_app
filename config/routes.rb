@@ -10,7 +10,17 @@ Rails.application.routes.draw do
   resources :pets, except: [:index]
   resources :reports, except: [:update]
   resources :users, except: [:index]
-  
+
   get "/reports/:id/contact_user", to: "reports#contact_user", as: "contact_user"
   patch "/reports/:id", to: 'reports#update', as: "update_report"
 end
+
+
+  # Ensure you have overridden routes for generated controllers in your route.rb.
+  # For example:
+
+  #   Rails.application.routes.draw do
+  #     devise_for :users, controllers: {
+  #       sessions: 'users/sessions'
+  #     }
+  #   end
