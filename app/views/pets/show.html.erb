@@ -1,53 +1,22 @@
+<div class="jumbotron">
+  <div class="row">
+  <div class="col-xs-6 col-md-4">
+    <%= image_tag @pet.image.url(:medium), class: "thumbnail" %>
+  </div>
+    <div class="col-xs-6 col-md-8">
+    <p><strong>Name:</strong><%= @pet.name %></p>
+    <p><strong>Type:</strong><%= @pet.pet_type %></p>
+    <p><strong>Breed:</strong><%= @pet.breed %></p>
+    <p><strong>Color:</strong><%= @pet.color %></p>
+    <p><strong>Weight:</strong><%= @pet.weight %></p>
+    <p><strong>Age:</strong><%= Time.now.year - @pet.birth_year.to_i %></p>
+    <p><strong>Owner:</strong><%= @pet.user.name %></p>
+    <p><strong>Chip:</strong><%= @pet.chip_id %></p>
+    <p><strong>Description:</strong><%= @pet.description %></p>
+  </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @pet.name %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @pet.pet_type %>
-</p>
-
-<p>
-  <strong>Breed:</strong>
-  <%= @pet.breed %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @pet.color %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @pet.weight %>
-</p>
-
-<p>
-  <strong>Birth year:</strong>
-  <%= @pet.birth_year %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @pet.user %>
-</p>
-
-<p>
-  <strong>Chip:</strong>
-  <%= @pet.chip_id %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @pet.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @pet.image.url %>
-</p>
 
 <% if current_user == @pet.user %>
   <%= link_to 'Edit', edit_pet_path(@pet) %> |
