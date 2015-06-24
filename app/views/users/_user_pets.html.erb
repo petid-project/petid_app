@@ -1,4 +1,4 @@
-<div id="user-pet-table">
+<div class="col-xs-12 content-box" id="user-pet-table">
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -11,11 +11,26 @@
 		<tbody>
 			<% @user.pets.each do |pet| %>
 				<tr>
-					<td><%= pet.image.url(:thumb) %></td>
+					<td>
+						<a href="<%= pet_path(pet) %>"><img src="<%= pet.image.url(:thumb) %>" alt="Image of <%= pet.name %>" class="img-thumbnail" /></a>
+					</td>
 					<td><%= pet.name %></td>
 					<td><%= pet.pet_type %></td>
+					<td class="group">
+						<% if current_user == @user %>
+		          <%= link_to  edit_pet_path(pet) do %>
+		            <span class='glyphicon glyphicon-pencil'></span>
+		           <% end %>
+		           <% if is_lost? pet.id %>
+		           	<%= button_to 'Found', update_report_path(pet.reports.last.id), params: {'report[is_active]' => false }, method: :patch, class: "button found-btn link-btn" %>
+		           	<% else %>
+		           		<%= link_to "Report lost", new_report_path(pet.id), class: "link-btn lost-btn", id: "report-lost" %>
+		          <% end %>
+		        <% end %>
+					</td>
 				</tr>
 		<% end %>
 		</tbody>
 	</table>
 </div>
+

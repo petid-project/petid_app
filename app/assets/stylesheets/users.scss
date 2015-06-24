@@ -1,5 +1,5 @@
 .custom-dog {
-  height: 15%;
+  height: 100px;
   border: 0.2rem solid black;
 }
 #newPet {
@@ -24,8 +24,27 @@ div#top-container {
 	text-align: center;
 }
 h2#pets-title {
-	margin-top: 10px;
+	margin-top: 2em;
 }
-.button {
-	float: right;
+.link-btn {
+  float: right;
+  width: 10rem;
+  text-align: center;
+}
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+tr.hover {
+   cursor: pointer;
+}
+a.lost-btn {
+  background-color: #FF0000;
+}
+input.found-btn {
+  background-color: #66CCFF;
+}
+form.button_to {
+  display: inline;
 }
