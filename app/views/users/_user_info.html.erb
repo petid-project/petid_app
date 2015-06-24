@@ -1,14 +1,16 @@
-<div id="prof-pic">
-	<%= gravatar_for @user %>
+<div class="col-md-12 panel panel-default" id="info-section">
+	<div id="prof-pic">
+		<%= gravatar_for @user %>
+	</div>
+
+	<h1>
+	  <%= @user.name %>
+	</h1>
+
+	<p>
+	  <strong>Location </strong> <%= @user.city %>, <%= @user.state %>
+	</p>
+	<% if current_user == @user %>
+	  <%= link_to 'Edit profile', edit_user_path(current_user) %>
+	<% end %>
 </div>
-
-<h1>
-  <%= @user.name %>
-</h1>
-
-<p>
-  <strong>Location </strong> <%= @user.city %>, <%= @user.state %>
-</p>
-<% if current_user == @user %>
-  <%= link_to 'Edit profile', edit_user_path(current_user) %>
-<% end %>
