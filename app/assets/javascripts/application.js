@@ -18,10 +18,14 @@
 
 $(document).ready( function () {
     $('#table_id').DataTable();
-} );
-
-
-$(document).on("click","#userPet",function(){
+    $('.clickable').click( function() {
+    window.location = $(this).find('a').attr('href');
+}).hover( function() {
+    $(this).toggleClass('hover');
+});
+}).on("click","#userPet",function(){
   $("#newPet").toggle();
 });
+
+
 

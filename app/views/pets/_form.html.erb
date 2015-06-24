@@ -19,7 +19,7 @@
     </div>
     <div class="field">
       <%= f.label :pet_type %><br>
-      <%= f.text_field :pet_type, class: "form-control" %>
+      <%= f.select :pet_type, options_for_select([["Dog", "dog"], ["Cat", "cat"], ["Bird", "bird"], ["Reptile", "reptile"], ["Misc", "misc"]]), {prompt: "Select type of pet"}, {required: 'true', autofocus: 'true', class: 'form-control'}%>
     </div>
     <div class="field">
       <%= f.label :breed %><br>
@@ -47,7 +47,7 @@
     </div>
     <div class="field">
       <%= f.label :image %>
-      <%= f.file_field :image, class: "form-control" %>
+      <%= f.file_field :image, class: "form-control" %><br>
     </div>
     <div class="actions">
       <%= f.submit "Add pet", class: "btn btn-primary btn-block", id: "addPet" %>

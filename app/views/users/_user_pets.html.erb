@@ -1,41 +1,43 @@
-<% @user.pets.each do |pet| %>
-	<div id="userPets">
-		<div class="media">
-		  <div class="media-left">
-		    <a href="#">
-		      <img class="media-object custom-dog" src="<%= pet.image.url(:thumb) %>" alt="placeholder dog">
-		    </a>
-		  </div>
-		  <div class="media-body">
-			  <div class="row">
-			  	<div class="col-md-2">
-			    	<h3 class="media-heading"> <%= pet.pet_type %> </h3>
-			    	<ul id="left-list">
-			    		<li><strong>Name: </strong><%= pet.name %> </li>
-			    		<li><strong>Breed: </strong><%= pet.breed %> </li>
-			    </div>
-			    <div class="col-md-2">
-			    	<ul id="center-list">
-			    		<li><strong>Age: </strong> <%= Time.now.year - pet.birth_year.to_i %></li>
-			    		<li><strong>Weight: </strong><%= pet.weight %> </li>
-			    		<li><strong>Color: </strong> <%= pet.color%></li>
-			    		<li><strong>Rfid ID: </strong> <%= pet.chip_id %> </li>
-			    	</ul>
-			    </div>
-			    <div class="col-md-4">
-			    	<p id="right-list"> <Strong> Description: </strong></br>
-			    		<%= pet.description %>
-			    	</p>
-			    </div>
-			    <div class="col-md-3 pull-right">
-			    	<% if (current_user == @user) && (is_lost? pet.id) %>
-						<%= button_to 'Found', update_report_path(pet.reports.last.id), params: {'report[is_active]' => false }, method: :patch, class: "button" %>
-			    	<% elsif current_user == @user %>
-						<%= link_to "Report lost", new_report_path(pet.id), class: "link-btn button", id: "report-lost" %>
-			    	<% end %>
-			    </div>
-			  </div>
-			</div>
-		</div>
+<div class="col-md-12 panel panel-default" id="user-pet-table">
+	<div class="col-md-6 col-md-offset-3">
+		<% if current_user == @user %>
+			<h2 id="pets-title">Your pets</h2>
+		<% else %>
+			<h2 id="pets-title"><%= @user.name.split(' ')[0] %>'s Pets</h2>
+		<% end %>
 	</div>
-<% end %>
+	<%= render 'new_user_pet' %>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Pet Name</th>
+				<th>Type</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @user.pets.each do |pet| %>
+				<tr class="pet-rows custom">
+					<td class="clickable">
+						<a href="<%= pet_path(pet) %>"><img src="<%= pet.image.url(:thumb) %>" alt="Image of <%= pet.name %>" class="img-thumbnail" /></a>
+					</td>
+					<td class="clickable"><%= pet.name %></td>
+					<td class="clickable"><%= pet.pet_type %></td>
+					<td class="group">
+						<% if current_user == @user %>
+		          <%= link_to  edit_pet_path(pet) do %>
+		            <span class='glyphicon glyphicon-pencil'></span>
+		           <% end %>
+		           <% if is_lost? pet.id %>
+		           	<%= button_to 'Found', update_report_path(pet.reports.last.id), params: {'report[is_active]' => false }, method: :patch, class: "button found-btn link-btn" %>
+		           	<% else %>
+		           		<%= link_to "Report lost", new_report_path(pet.id), class: "link-btn lost-btn", id: "report-lost" %>
+		          <% end %>
+		        <% end %>
+					</td>
+				</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>
