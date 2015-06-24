@@ -1,3 +1,20 @@
+
+<p>
+  <strong>Image </strong>
+    <div class="media">
+      <div class="media-left">
+        <a href="#">
+          <img class="media-object custom-dog" src="<%= @report.pet.image.url(:thumb) %>" alt="placeholder dog">
+        </a>
+      </div>
+</p>
+
+<p>
+<% if current_user == @report.user %>
+  <%= link_to 'Edit Lost Report', edit_report_path(@report) %> 
+  
+<% end %>
+</p>
 <p>
   <strong>Date of loss:</strong>
   <%= @report.date_of_loss.strftime("%m/%d/%Y") %>
@@ -9,20 +26,17 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @report.user.name %>
-</p>
-
-<p>
   <strong>Pet:</strong>
   <%= @report.pet.name %>
+</p>
+<p>
+  <strong>Age: </strong> <%= Time.now.year - @report.pet.birth_year.to_i %>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @report.description %>
 </p>
-
 <p>
   <strong>Notes:</strong>
   <%= @report.notes %>
@@ -32,15 +46,26 @@
   <%= @report.reward %>
 </p>
 <p>
-  <strong>Image </strong>
-      <div class="media-left">
-      <a href="#">
-        <img class="media-object custom-dog" src="http://static1.squarespace.com/static/52ed8c2ce4b09f388981c1e7/t/52ef2984e4b0358dd4df714c/1391405444963/DOG+ICON.png" alt="placeholder dog">
-      </a>
-    </div>
+  <strong>Type </strong>
+  <%= @report.pet.pet_type %> </h3>
+</p>
+<p>
+  <strong>Breed </strong>
+  </strong><%= @report.pet.breed %> </li>
+</p>
+<p>
+  <strong>Weight </strong>
+  </strong><%= @report.pet.weight %> </li>
+</p>
+<p>
+  <strong>Color </strong>
+   </strong> <%= @report.pet.color%></li>
+</p>
+<p>
+  <strong>Chip ID: </strong>
+   </strong> <%= @report.pet.chip_id %> </li>
 </p>
 
-<% if current_user == @report.user %>
-  <%= link_to 'Edit', edit_report_path(@report) %> |
-<% end %>
-<%= link_to 'Back', reports_path %>
+
+
+

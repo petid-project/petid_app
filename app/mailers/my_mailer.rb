@@ -24,19 +24,32 @@ class MyMailer < Devise::Mailer
     # code to be added here later
   end
 
-  def send_found_pet_message(report)
+  def send_found_pet_message(report, content)
     options = {
       :subject => "Message from PetID",
       :email => report.user.email,
       :name => report.user.name,
       :global_merge_vars => [
         {
-          name: "report_link",
-          content: ENV['HOST'] + "/reports/#{report.id}"
+          name: "reporter_name",
+          content: content[:reporter_name]
+        },
+        {
+          name: "reporter_phone",
+          content: content[:phone]
+        },
+        {
+          name: "reporter_message",
+          content: content[:message]
+        },
+        {
+          name: "reporter_email",
+          content: content[:email]
         }
       ],
       :template => "PetID Message"
     }
+    #Rails.logger.debug options
     mandrill_send options
   end
 
