@@ -53,6 +53,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'domp'
 
+  gem 'quiet_assets'
+
 end
 
 gem 'dotenv-rails'
@@ -67,3 +69,5 @@ gem 'rails_12factor', group: :production
 
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+
+gem 'mandrill-api'
