@@ -32,24 +32,24 @@ class MyMailer < Devise::Mailer
       :global_merge_vars => [
         {
           name: "reporter_name",
-          content: content[:reporter_name]
+          content: ERB::Util.html_escape(content[:reporter_name])
         },
         {
           name: "reporter_phone",
-          content: content[:phone]
+          content: ERB::Util.html_escape(content[:phone])
         },
         {
           name: "reporter_message",
-          content: content[:message]
+          content: ERB::Util.html_escape(content[:message])
         },
         {
           name: "reporter_email",
-          content: content[:email]
+          content: ERB::Util.html_escape(content[:email])
         }
       ],
       :template => "PetID Message"
     }
-    #Rails.logger.debug options
+    # Rails.logger.debug options
     mandrill_send options
   end
 
