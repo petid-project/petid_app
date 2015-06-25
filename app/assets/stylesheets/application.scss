@@ -15,9 +15,23 @@
   color: #000;
   text-decoration: none;
 }
-.panel.custom{
+.panel{
 	padding: 3rem;
 }
 .top-pan{
 	padding: 0 0 0 3rem;
+}
+.cust-chk {
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.fb-btn{
+  background-color: #dcdcdc;
+  color: #000;
+  text-decoration: none;
+  width: 100%;
+  font-size: 1.5rem;
 }
