@@ -4,7 +4,6 @@ body.splash{
 #main-content{
 	background: url('https://petid-assets.s3.amazonaws.com/images/original/lost_dog.jpg') 0% 25% no-repeat;
 	height: 105%;
-	margin-top: -2;
 }
 h1.splash-custom{
   padding-top: 15rem;
@@ -53,7 +52,7 @@ p.splash-custom{
 	color: white;
 }
 .inner{
-  background-color: #1D1D20;
+  background-color: #666666;
   padding: 5rem;
   position: relative;
   width: 35rem;
@@ -106,6 +105,9 @@ a.divLink{
 }
 #about-header{
 	text-align: center;
+}
+.splash-custom.about {
+  color: #313131;
 }
 @media (max-width: 1100px){
   .inner {
