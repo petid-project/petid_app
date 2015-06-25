@@ -15,8 +15,9 @@
 
     <div class="field">
       <%= f.label :date_of_loss %><br>
-      <%= f.datetime_select :date_of_loss, class: "form-control" %>
+      <%= f.date_select :date_of_loss, {}, {:class => "form-control date-control"} %>
     </div>
+
     <div class="field">
       <%= f.label :location %><br>
       <%= f.text_field :location, class: "form-control" %>

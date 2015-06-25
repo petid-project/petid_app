@@ -37,6 +37,7 @@ form.button_to {
   width: 10rem;
   text-align: center;
 }
+
 #info-section{
   padding-bottom: 1rem;
 }
@@ -47,3 +48,10 @@ form.button_to {
   border-style: none;
   z-index: 10000;
 }
+select.date-control{
+    display: inline-block;
+    width:auto; 
+}
+
+
+

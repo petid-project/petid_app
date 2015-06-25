@@ -16,6 +16,8 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+
+
 $(document).ready( function () {
     $('#table_id').DataTable();
     $('.clickable').click( function() {
