@@ -16,9 +16,9 @@
 				<th>Actions</th>
 			</tr>
 		</thead>
-		<tbody>
-			<% @user.pets.each do |pet| %>
-				<tr class="pet-rows custom">
+		<tbody id="tableBody">
+			<% @user.pets.order(created_at: :desc).each do |pet| %>
+				<tr class="petRows custom">
 					<td class="clickable">
 						<a href="<%= pet_path(pet) %>"><img src="<%= pet.image.url(:thumb) %>" alt="Image of <%= pet.name %>" class="img-thumbnail" /></a>
 					</td>
@@ -26,11 +26,10 @@
 					<td class="clickable"><%= pet.pet_type %></td>
 					<td class="group">
 						<% if current_user == @user %>
-		          <%= link_to  edit_pet_path(pet) do %>
-		            <span class='glyphicon glyphicon-pencil'></span>
-		           <% end %>
+		          <%= link_to "Edit pet", edit_pet_path(pet), class: "link-btn"%>
+		           <%= link_to 'Remove pet', pet, method: :delete, data: { confirm: 'Are you sure?' },class: "link-btn" %>
 		           <% if is_lost? pet.id %>
-		           	<%= button_to 'Found', update_report_path(pet.reports.last.id), params: {'report[is_active]' => false }, method: :patch, class: "button found-btn link-btn" %>
+		           	<%= button_to 'Found', update_report_path(pet.reports.last.id), params: {'report[is_active]' => false }, method: :patch, class: "button found-btn link-btn", :form => { :id => "foundId" }%>
 		           	<% else %>
 		           		<%= link_to "Report lost", new_report_path(pet.id), class: "link-btn lost-btn", id: "report-lost" %>
 		          <% end %>

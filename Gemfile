@@ -71,3 +71,8 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 
 gem 'mandrill-api'
+
+
+gem 'simple_captcha2', require: 'simple_captcha'
+
+gem 'bootstrap-datepicker-rails'

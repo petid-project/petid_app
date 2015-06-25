@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  include SimpleCaptcha::ControllerHelpers
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
 
@@ -40,6 +41,7 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
+    params[:report][:date_of_loss] = Date.strptime(params[:report][:date_of_loss], "%m/%d/%Y")
     @report = Report.new(report_params)
     @report.user = current_user
 
@@ -84,10 +86,14 @@ class ReportsController < ApplicationController
   end
 
   def process_contact_user
-    @content = {reporter_name: params[:reporter_name],email: params[:email], phone: params[:phone], message: params[:message]}
     @report = Report.find(params[:id])
-    MyMailer.send_found_pet_message(@report,@content).deliver_now
-    return redirect_to @report, notice: 'Message sent'
+    if simple_captcha_valid?
+      @content = {reporter_name: params[:reporter_name],email: params[:email], phone: params[:phone], message: params[:message]}
+      MyMailer.send_found_pet_message(@report,@content).deliver_now
+      return redirect_to @report, notice: 'Message sent'
+    else
+      redirect_to show_contact_user_path(@report), alert: 'Invalid captcha.'
+    end
   end
 
 

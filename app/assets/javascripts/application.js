@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
 //= require_tree .
 
 $(document).ready( function () {
@@ -23,9 +25,13 @@ $(document).ready( function () {
 }).hover( function() {
     $(this).toggleClass('hover');
 });
+
 }).on("click","#userPet",function(){
-  $("#newPet").toggle();
+  if ($(this).hasClass('open')) {
+    $("#newPet").slideUp(350);
+    $(this).removeClass('open');
+  } else {
+    $(this).addClass('open');
+    $("#newPet").slideDown(350);
+  }
 });
-
-
-

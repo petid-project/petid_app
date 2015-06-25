@@ -6,63 +6,39 @@
         <a href="#">
           <img class="media-object custom-dog" src="<%= @report.pet.image.url(:thumb) %>" alt="placeholder dog">
         </a>
+<div class="jumbotron">
+  <div class="row">
+  <div class="col-xs-6 col-md-4">
+    <%= image_tag @report.pet.image.url(:medium), class: "thumbnail" %>
+  </div>
+    <div class="col-xs-6 col-md-8">
+      <div class="thumbnail">
+        <div class="caption">
+          <p><strong>Name:</strong><%= @report.pet.name %></p>
+          <p><strong>Type:</strong><%= @report.pet.pet_type %></p>
+          <p><strong>Breed:</strong><%= @report.pet.breed %></p>
+          <p><strong>Color:</strong><%= @report.pet.color %></p>
+          <p><strong>Weight:</strong><%= @report.pet.weight %></p>
+          <p><strong>Age:</strong><%= Time.now.year - @report.pet.birth_year.to_i %></p>
+        </div>
       </div>
-</p>
-
-<p>
-<% if current_user == @report.user %>
-  <%= link_to 'Edit Lost Report', edit_report_path(@report) %> 
-  
-<% end %>
-</p>
-<p>
-  <strong>Date of loss:</strong>
-  <%= @report.date_of_loss.strftime("%m/%d/%Y") %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @report.location %>
-</p>
-
-<p>
-  <strong>Pet:</strong>
-  <%= @report.pet.name %>
-</p>
-<p>
-  <strong>Age: </strong> <%= Time.now.year - @report.pet.birth_year.to_i %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @report.description %>
-</p>
-<p>
-  <strong>Notes:</strong>
-  <%= @report.notes %>
-</p>
-<p>
-  <strong>Reward $ </strong>
-  <%= @report.reward %>
-</p>
-<p>
-  <strong>Type </strong>
-  <%= @report.pet.pet_type %> </h3>
-</p>
-<p>
-  <strong>Breed </strong>
-  </strong><%= @report.pet.breed %> </li>
-</p>
-<p>
-  <strong>Weight </strong>
-  </strong><%= @report.pet.weight %> </li>
-</p>
-<p>
-  <strong>Color </strong>
-   </strong> <%= @report.pet.color%></li>
-</p>
-<p>
-  <strong>Chip ID: </strong>
-   </strong> <%= @report.pet.chip_id %> </li>
-</p>
+      <div class="thumbnail">
+        <div class="caption">
+          <p><strong>Chip:</strong><%= @report.pet.chip_id %></p>
+          <p><strong>Lost Date:</strong><%= @report.date_of_loss.strftime("%m/%d/%Y") %></p>
+          <p><strong>Lost Location:</strong><%= @report.location %></p>
+          <p><strong>Reward:</strong><%= @report.reward %></p>
+          <p><strong>Notes:</strong><%= @report.reward %></p>
+          <p><strong>Description:</strong><%= @report.notes %></p>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+<div>
+  <p>
+  <% if current_user == @report.user %>
+    <%= link_to 'Edit Lost Report', edit_report_path(@report) %> 
+  <% end %>
+</div>
 </div>
