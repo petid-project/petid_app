@@ -30,8 +30,8 @@
 </div>
 <div>
   <p>
-  <% if current_user == @report.user %>
-    <%= link_to 'Edit Lost Report', edit_report_path(@report) %> 
+  <% if @report.user.is current_user %>
+    <%= link_to 'Edit Lost Report', edit_report_path(@report) %>
   <% end %>
 </div>
 </div>

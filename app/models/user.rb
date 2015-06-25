@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :pets
   has_many :reports
-  
+
   def self.create_from_omniauth(params)
     attributes = {
       email: params['info']['email'],
@@ -19,5 +19,9 @@ class User < ActiveRecord::Base
   devise  :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable, :omniauth_providers => [:facebook]
+
+def is user
+    self == user
+end
 
 end
