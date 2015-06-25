@@ -31,6 +31,7 @@ class PetsController < ApplicationController
       if @pet.save
         format.html { redirect_to @pet.user, notice: 'Pet was successfully created.' }
         format.json { render :show, status: :created, location: @pet }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @pet.errors, status: :unprocessable_entity }
