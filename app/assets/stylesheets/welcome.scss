@@ -1,17 +1,17 @@
 body.splash{
-  background: url('brickwall.png') repeat;
+  background: url('https://petid-assets.s3.amazonaws.com/images/original/brickwall.png') repeat;
 }
 #main-content{
-	background: url('lost_dog.jpg') 0% 25% no-repeat;
+	background: url('https://petid-assets.s3.amazonaws.com/images/original/lost_dog.jpg') 0% 25% no-repeat;
 	height: 105%;
-	margin-top: -2rem;
+	margin-top: -2;
 }
 h1.splash-custom{
   padding-top: 15rem;
   font-family: 'Montserrat', sans-serif;
   font-size: 12rem;
 }
-h3{
+h3.splash-custom{
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bolder;
 	font-size: 3rem;
@@ -19,7 +19,7 @@ h3{
 h2.splash-custom{
 	font-family: 'Domine', serif;
 }
-p{
+p.splash-custom{
 	font-family: 'Domine', serif;
 	font-size: 2rem;
   line-height: 2.7rem;
@@ -48,7 +48,7 @@ p{
   transform: translateZ(-1px) scale(2);
 }
 .con{
-  margin: 47rem 0 28rem 0;
+  margin: 45rem 0 28rem 0;
 	text-align: center;
 	color: white;
 }
@@ -58,7 +58,7 @@ p{
   position: relative;
   width: 35rem;
   height: 27rem;
-  opacity: 0.75;
+  opacity: 0.9;
   border-radius: 10px;
   border: 2px solid #A1CF6B;
   display: inline-block;
@@ -83,9 +83,26 @@ a.divLink{
     cursor: pointer;
   }
 }
+.splash-btn.login.link-btn{
+  background-color: #7AC74F;
+}
+.splash-btn.signup.link-btn{
+  background-color: #D5D887;
+  margin-bottom: .5rem;
+}
+.splash-btn.link-btn{
+  width: 100%;
+  border: #E0C879 solid .2rem;
+  color: #E87461;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Domine', serif;
+  &:hover{
+    background-color: #E87461;
+  };
+}
 #about{
 	margin-top: 125rem;
-
 }
 #about-header{
 	text-align: center;
@@ -114,10 +131,10 @@ a.divLink{
     padding: 1.5rem;
     height: 23rem;
   }
-  h3{
+  h3.splash-custom{
     font-size: 2.5rem;
   }
-  p{
+  p.splash-custom{
     font-size: 1.5rem;
   }
   .con{
@@ -132,10 +149,10 @@ a.divLink{
     width: 50rem;
     padding: 2.5rem;
   }
-  h3{
+  h3.splash-custom{
     font-size: 3.5rem;
   }
-  p{
+  p.splash-custom{
     font-size: 2.5rem;
   }
   .con.left{
@@ -153,6 +170,11 @@ a.divLink{
     margin: 255rem 0 12rem 0;
   }
 }
+@media (max-width: 500px){
+  .inner{
+  width: 41rem;
+  }
+}
 @media (max-width: 400px){
   #main-content{
     background-position-x: 79%;
@@ -161,10 +183,10 @@ a.divLink{
     width: 35rem;
     padding: 2.5rem;
   }
-  h3{
+  h3.splash-custom{
     font-size: 3rem;
   }
-  p{
+  p.splash-custom{
     font-size: 1.75rem;
   }
   #about{

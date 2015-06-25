@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   has_many :pets
   has_many :reports
+
+  def first_name
+    name.split(' ')[0]
+  end
+
   
   def self.create_from_omniauth(params)
     attributes = {

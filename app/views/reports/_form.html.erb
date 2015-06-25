@@ -20,19 +20,19 @@
         <%= f.label :location %><br>
         <%= f.text_field :location, class: "form-control", placeholder: "Where did you last see your pet?" %>
       </div>
-    </div>
+    </div><br>
     <div class="field">
       <%= f.label :description %><br>
       <%= f.text_area :description, class: "form-control", placeholder: "Describe what happened" %>
-    </div>
+    </div><br>
     <div class="field">
       <%= f.label :notes %><br>
       <%= f.text_area :notes, class: "form-control", placeholder: "Please note anything someone looking for your pet might need to know." %>
-    </div>
+    </div><br>
     <div class="field">
       <%= f.label :reward %><br>
       <%= f.text_field :reward, class: "form-control", placeholder: "If you are offering a reward please write it here; i.e. $100" %>
-    </div>
+    </div><br>
     <div class="field">
       <%= f.hidden_field :pet_id, value: @pet.id %><br>
     </div>

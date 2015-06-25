@@ -8,30 +8,36 @@
 <div id="brick">
 	<div class="parallax__layer parallax__layer--back" id="boxes">
 		<div class="col-sm-4 con left">
-      <div class="inner-right inner">
-        <h3>Found a furry friend?</h3>
-        <p>search our database of lost pets to contact the owner directly</p>
-        <p><a class="divLink" href="<%= reports_path %>">Search lost pets</a></p>
+      <div class="inner-left inner">
+        <h3 class="splash-custom">Found a furry friend?</h3>
+        <p class="splash-custom">search our database of lost pets to contact the owner directly</p>
+        <p class="splash-custom"><a class="divLink" href="<%= reports_path %>">Search lost pets</a></p>
       </div>
     </div>
 		<div class="col-sm-4 con center">
 			<div class="inner-center inner">
-				<h3>Login or Sign up</h3>
-				<p>like the superstar that it is!</p>
-        <%= link_to 'Sign up', new_user_registration_path, class: 'link-btn splash-link' %>
-        <%= link_to 'Login', new_user_session_path, class: 'link-btn' %>
-			</div>
-		</div>
-		<div class="col-sm-4 con right">
-      <div class="inner-left inner">
-        <h3>Report your pet lost</h3>
-        <p>to your local community</p>
         <% if user_signed_in? %>
-          <p><a class="divLink" href="<%= user_path(current_user) %>">Login to report your pet</a></p>
+          <h3> Welcome back, <%= current_user.first_name %></h3>
+          <%= link_to 'Your Account', current_user, class: 'link-btn splash-btn signup btn' %>
         <% else %>
-          <p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
-          <% end %>
+				  <h3 class="splash-custom">Login or Sign up</h3>
+				  <p class="splash-custom"></p>
+          <%= link_to 'Sign up', new_user_registration_path, class: 'link-btn splash-btn signup btn' %>
+          <%= link_to 'Login', new_user_session_path, class: 'link-btn splash-btn login btn' %>
+        <% end %>
+        </div>
       </div>
+    <div class="col-sm-4 con right">
+			<div class="inner-right inner">
+    			<h3 class="splash-custom">Report your pet lost</h3>
+    			<p class="splash-custom">to your local community</p>
+    			<% if user_signed_in? %>
+    				<p><a class="divLink splash-custom" href="<%= user_path(current_user) %>">Login to report your pet</a></p>
+    			<% else %>
+    				<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
+    			<% end %>
+			</div>
+    </div>
 </div>
 <div class="col-sm-8 col-sm-offset-2" id="about">
 	<h2 id="about-header">About</h2>
