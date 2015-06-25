@@ -1,14 +1,44 @@
-<div id="main-content">
-	
+<div class="parallax">
+	<div class="img parallax__layer parallax__layer--base" id="main-content">	
+		<h1 class="splash-custom">Pet ID</h1>
+		<h2 class="splash-custom">The fastest way to reunite with the one you love</h2>
+		<h2 class="splash-custom">...your furball</h2>
+	</div>
 
-	<h1>Pets!</h1>
-	<h3>subtitle</h3>
-	<%= link_to "Search lost pets", reports_path, class: 'link-btn' %>
+<div id="brick">
+	<div class="parallax__layer parallax__layer--back" id="boxes">
+		<div class="col-sm-4 con left">
+			<div class="inner-left inner">
+				<div class="inner-inner">
+				<h3>Report your pet lost</h3>
+				<p>to your local community</p>
+				<% if user_signed_in? %>
+					<p><a class="divLink" href="<%= user_path(current_user) %>">Login to report your pet</a></p>
+				<% else %>
+					<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4 con center">
+			<div class="inner-center inner">
+				<h3>Found a lost furry friend?</h3>
+				<p>search our database of lost pets to contact the owner directly</p>
+				<p><a class="divLink" href="<%= reports_path %>">Search lost pets</a></p>
+			</div>
+		</div>
+		<div class="col-sm-4 con right">
+			<div class="inner-right inner">
+				<h3>Create a profile for your pet</h3>
+				<p>like the superstar that it is!</p>
+				<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
+			</div>
+		</div>
 </div>
-
-<div id="about">
-	<h3>About</h3>
-	<p>Brigantine dead men tell no tales plunder cutlass lugsail clap of thunder fluke hogshead fathom hardtack. Yardarm chantey gally gabion come about hornswaggle dance the hempen jig shrouds no prey, no pay pinnace. Starboard chase guns heave to Sail ho dead men tell no tales yo-ho-ho topmast knave fluke aft.
-	Scourge of the seven seas Jack Tar Jolly Roger lugsail bilged on her anchor no prey, no pay draft hogshead cackle fruit Gold Road. Gunwalls port piracy warp tender reef sails man-of-war killick hardtack broadside. Scurvy bilge rat crack Jennys tea cup league piracy fore lugsail ho lanyard sheet.
-	Belay booty run a shot across the bow gun chase bowsprit six pounders bilge water avast take a caulk. Landlubber or just lubber fathom Jolly Roger stern piracy lad pirate pinnace man-of-war rope's end. Hearties to go on account take a caulk chantey hang the jib sheet pinnace yawl yardarm Chain Shot.</p>
-</div>
+<div class="col-sm-8 col-sm-offset-2" id="about">
+	<h2 id="about-header">About</h2>
+		<p id="abt-paragraph">Brigantine dead men tell no tales plunder cutlass lugsail clap of thunder fluke hogshead fathom hardtack. Yardarm chantey gally gabion come about hornswaggle dance the hempen jig shrouds no prey, no pay pinnace. Starboard chase guns heave to Sail ho dead men tell no tales yo-ho-ho topmast knave fluke aft.
+		Scourge of the seven seas Jack Tar Jolly Roger lugsail bilged on her anchor no prey, no pay draft hogshead cackle fruit Gold Road. Gunwalls port piracy warp tender reef sails man-of-war killick hardtack broadside. Scurvy bilge rat crack Jennys tea cup league piracy fore lugsail ho lanyard sheet.
+		Belay booty run a shot across the bow gun chase bowsprit six pounders bilge water avast take a caulk. Landlubber or just lubber fathom Jolly Roger stern piracy lad pirate pinnace man-of-war rope's end. Hearties to go on account take a caulk chantey hang the jib sheet pinnace yawl yardarm Chain Shot.</p>
+	</div>
+	</div>
