@@ -19,12 +19,11 @@
 //= require_tree .
 
 $(document).ready( function () {
-    $('#table_id').DataTable();
-    $('.clickable').click( function() {
+  $('tr').click( function() {
     window.location = $(this).find('a').attr('href');
-}).hover( function() {
-    $(this).toggleClass('hover');
-});
+    }).hover( function() {
+      $(this).toggleClass('hover');
+    });
 
 }).on("click","#userPet",function(){
   if ($(this).hasClass('open')) {

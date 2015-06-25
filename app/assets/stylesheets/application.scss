@@ -6,12 +6,18 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
-@import url(http://fonts.googleapis.com/css?family=Domine);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Domine);
 
 .link-btn{
   padding: 5px;
   background-color: #dcdcdc;
   color: #000;
   text-decoration: none;
+}
+.panel.custom{
+	padding: 3rem;
+}
+.top-pan{
+	padding: 0 0 0 3rem;
 }
