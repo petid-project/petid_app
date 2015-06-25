@@ -27,6 +27,7 @@
 					<td class="group">
 						<% if current_user == @user %>
 		          <%= link_to "Edit pet", edit_pet_path(pet), class: "link-btn"%>
+		           <%= link_to 'Remove pet', pet, method: :delete, data: { confirm: 'Are you sure?' },class: "link-btn" %>
 		           <% if is_lost? pet.id %>
 		           	<%= button_to 'Found', update_report_path(pet.reports.last.id), params: {'report[is_active]' => false }, method: :patch, class: "button found-btn link-btn", :form => { :id => "foundId" }%>
 		           	<% else %>
