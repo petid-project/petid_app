@@ -18,14 +18,7 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
 //= require_tree .
 
-$(document).ready( function () {
-  $('tr').click( function() {
-    window.location = $(this).find('a').attr('href');
-    }).hover( function() {
-      $(this).toggleClass('hover');
-    });
-
-}).on("click","#userPet",function(){
+var newPet_toggle = function() {
   if ($(this).hasClass('open')) {
     $("#newPet").slideUp(350);
     $(this).removeClass('open');
@@ -33,4 +26,19 @@ $(document).ready( function () {
     $(this).addClass('open');
     $("#newPet").slideDown(350);
   }
-});
+}
+
+var ready = function() {
+  $('#table_id').DataTable();
+  $('.clickable').click( function() {
+    window.location = $(this).parent().children().first().find('a').attr('href')
+  });
+}
+
+var hover_toggle = function() {
+  $(this).toggleClass('hover');
+}
+
+$(document).ready(ready).hover(hover_toggle);
+$(document).on('page:load', ready).hover(hover_toggle);
+$(document).on("click","#userPet", newPet_toggle);
