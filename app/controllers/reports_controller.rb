@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   include SimpleCaptcha::ControllerHelpers
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show_contact_user, :show]
 
   # GET /reports
   # GET /reports.json
