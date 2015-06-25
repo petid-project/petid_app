@@ -1,76 +1,58 @@
- .container {
-	padding: 0;
-	margin: 0;
-	width: 100%;
+body.splash{
+  background: url('brickwall.png') repeat;
 }
-body {
-  background-image: url('brickwall.png');
-  background-repeat: repeat;
-}
-#main-content {
-	background-image: url('lost_dog.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
+#main-content{
+	background: url('lost_dog.jpg') 0% 25% no-repeat;
 	height: 105%;
 	margin-top: -2rem;
-	background-position: 0% 25%;
 }
-header.page-header {
-	display: none;
-}
-h1.splash-custom {
+h1.splash-custom{
   padding-top: 15rem;
-  color: white;
   font-family: 'Montserrat', sans-serif;
   font-size: 12rem;
 }
-h3 {
+h3{
 	font-family: 'Montserrat', sans-serif;
-	color: white;
 	font-weight: bolder;
 	font-size: 3rem;
 }
-h2.splash-custom {
-	color: white;
+h2.splash-custom{
 	font-family: 'Domine', serif;
 }
-p {
+p{
 	font-family: 'Domine', serif;
 	font-size: 2rem;
-  padding-top: 2rem;
   line-height: 2.7rem;
 }
-.splash-custom {
+.splash-custom{
 	color: white;
 	text-align: center;
 }
-.parallax {
+.parallax{
   perspective: 1px;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
-.parallax__layer {
+.parallax__layer{
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-.parallax__layer--base {
+.parallax__layer--base{
   transform: translateZ(0);
 }
-.parallax__layer--back {
+.parallax__layer--back{
   transform: translateZ(-1px) scale(2);
-
 }
-.con {
-	margin-bottom: 28rem;
-  margin-top: 47rem;
+.con{
+  margin: 47rem 0 28rem 0;
 	text-align: center;
 	color: white;
 }
-.inner {
+.inner{
 	background-color: #1D1D20;
 	padding: 5rem;
 	position: relative;
@@ -80,118 +62,113 @@ p {
 	border-radius: 10px;
 	border: 2px solid #A1CF6B;
 	display: inline-block;
-	text-align: center
-}
-div.inner:hover {
-    cursor: hand;
+	text-align: center;
+  &:hover {
     cursor: pointer;
     background-color: #E0C879;
     color: #E87461;
-    opacity: 1;
-}
- 
-a.divLink {
+    opacity: 1;    
+  }
+} 
+a.divLink{
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     text-decoration: none;
-    /* Makes sure the link doesn't get underlined */
     z-index: 10;
-    /* raises anchor tag above everything else in div */
-    background-color: white;
-    /*workaround to make clickable in IE */
     opacity: 0;
-    /*workaround to make clickable in IE */
     filter: alpha(opacity=0);
-    /*workaround to make clickable in IE */
 }
 #about{
 	margin-top: 125rem;
 
 }
-#about-header {
+#about-header{
 	text-align: center;
 }
-
-/*
-=================
-MEDIA QUERIES
-=================
-*/
-@media (max-width: 1100px) {
+@media (max-width: 1100px){
   .inner {
     width: 30rem;
     padding: 4rem;
-
   }
 }
-@media (max-width: 975px) {
+@media (max-width: 975px){
+  #main-content{
+    background-position-x: -5rem;
+  }
   .inner {
     width: 27rem;
     padding: 3rem;
  }
 }
-@media (max-width: 875px) {
-  .inner {
+@media (max-width: 875px){
+  #main-content{
+    background-position-x: -15rem;
+    }
+  .inner{
     width: 23rem;
     padding: 1.5rem;
     height: 23rem;
   }
-  h3 {
+  h3{
     font-size: 2.5rem;
   }
-  p {
+  p{
     font-size: 1.5rem;
   }
-  .con {
+  .con{
     margin-top: 50rem;
   }
-  #about {
+  #about{
     margin-bottom: 2.5rem;
   }
 }
-@media (max-width: 750px) {
-  .inner {
+@media (max-width: 750px){
+  #main-content{
+    background-position-x: -40rem;
+  }
+  .inner{
     width: 50rem;
     padding: 2.5rem;
   }
-  h3 {
+  h3{
     font-size: 3.5rem;
   }
-  p {
+  p{
     font-size: 2.5rem;
   }
-  .con.left {
+  .con.left{
     margin-bottom: 2.25rem;
   }
-  .con.center {
+  .con.center{
     margin-top: 2.25rem;
     margin-bottom: 2.25rem;
   }
-  .con.right {
+  .con.right{
     margin-top: 2.25rem;
     margin-bottom: 0;
   }
-  #about {
-    margin-bottom: 12rem;
-    margin-top: 255rem;
+  #about{
+    margin: 255rem 0 12rem 0;
   }
 }
-@media (max-width: 400px) {
-  .inner {
+@media (max-width: 400px){
+  #main-content{
+    background-position-x: -48rem;
+  }
+  .inner{
     width: 35rem;
     padding: 2.5rem;
   }
-  h3 {
+  h3{
     font-size: 3rem;
   }
-  p {
+  p{
     font-size: 1.75rem;
   }
-  #about {
-    margin-top: 275rem;
-    margin-bottom: 0;
+  #about{
+    margin: 275rem 0 0 0;
   }
 }

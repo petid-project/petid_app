@@ -12,7 +12,11 @@
 				<div class="inner-inner">
 				<h3>Report your pet lost</h3>
 				<p>to your local community</p>
-				<p><a class="divLink" href="<%= new_user_session_path %>">Login to report your pet</a></p>
+				<% if user_signed_in? %>
+					<p><a class="divLink" href="<%= user_path(current_user) %>">Login to report your pet</a></p>
+				<% else %>
+					<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -27,7 +31,7 @@
 			<div class="inner-right inner">
 				<h3>Create a profile for your pet</h3>
 				<p>like the superstar that it is!</p>
-				<p><a class="divLink" href="<%= user_registration_path %>">Login to report your pet</a></p>
+				<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
 			</div>
 		</div>
 </div>
