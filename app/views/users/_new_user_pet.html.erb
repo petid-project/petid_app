@@ -1,4 +1,4 @@
-<% if current_user == @user %>
+<% if @user.is current_user %>
 	<div class="col-md-2 col-md-offset-10" id="form-btn">
 		<%= link_to 'Add Pet', new_pet_path, class: "link-btn", id: "userPet", remote: true %>
 		</div>

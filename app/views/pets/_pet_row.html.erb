@@ -5,7 +5,7 @@
 	<td class="clickable"><%= @pet.name %></td>
 	<td class="clickable"><%= @pet.pet_type %></td>
 	<td class="group">
-		<% if current_user == @pet.user %>
+		<% if @pet.user.is current_user %>
       <%= link_to "Edit pet", edit_pet_path(@pet), class: "link-btn"%>
        <% if is_lost? @pet.id %>
        	<%= button_to 'Found', update_report_path(@pet.reports.last.id), params: {'report[is_active]' => false }, method: :patch, class: "button found-btn link-btn", :form => { :id => "foundId" }, remote: true %>
