@@ -1,8 +1,8 @@
 body.splash{
-  background: url('brickwall.png') repeat;
+  background: url('https://petid-assets.s3.amazonaws.com/images/original/brickwall.png') repeat;
 }
 #main-content{
-	background: url('lost_dog.jpg') 0% 25% no-repeat;
+	background: url('https://petid-assets.s3.amazonaws.com/images/original/lost_dog.jpg') 0% 25% no-repeat;
 	height: 105%;
 	margin-top: -2rem;
 }
@@ -11,7 +11,7 @@ h1.splash-custom{
   font-family: 'Montserrat', sans-serif;
   font-size: 12rem;
 }
-h3{
+h3.splash-custom{
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bolder;
 	font-size: 3rem;
@@ -19,7 +19,7 @@ h3{
 h2.splash-custom{
 	font-family: 'Domine', serif;
 }
-p{
+p.splash-custom{
 	font-family: 'Domine', serif;
 	font-size: 2rem;
   line-height: 2.7rem;
@@ -48,7 +48,7 @@ p{
   transform: translateZ(-1px) scale(2);
 }
 .con{
-  margin: 47rem 0 28rem 0;
+  margin: 45rem 0 28rem 0;
 	text-align: center;
 	color: white;
 }
@@ -83,7 +83,6 @@ a.divLink{
 }
 #about{
 	margin-top: 125rem;
-
 }
 #about-header{
 	text-align: center;
@@ -112,10 +111,10 @@ a.divLink{
     padding: 1.5rem;
     height: 23rem;
   }
-  h3{
+  h3.splash-custom{
     font-size: 2.5rem;
   }
-  p{
+  p.splash-custom{
     font-size: 1.5rem;
   }
   .con{
@@ -133,10 +132,10 @@ a.divLink{
     width: 50rem;
     padding: 2.5rem;
   }
-  h3{
+  h3.splash-custom{
     font-size: 3.5rem;
   }
-  p{
+  p.splash-custom{
     font-size: 2.5rem;
   }
   .con.left{
@@ -162,10 +161,10 @@ a.divLink{
     width: 35rem;
     padding: 2.5rem;
   }
-  h3{
+  h3.splash-custom{
     font-size: 3rem;
   }
-  p{
+  p.splash-custom{
     font-size: 1.75rem;
   }
   #about{

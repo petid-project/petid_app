@@ -10,7 +10,7 @@
         <p><strong>Breed:</strong><%= @pet.breed %></p>
         <p><strong>Color:</strong><%= @pet.color %></p>
         <p><strong>Weight:</strong><%= @pet.weight %></p>
-        <p><strong>Age:</strong><%= Time.now.year - @pet.birth_year.to_i %></p>
+        <p><strong>Age:</strong><%= @pet.age %></p>
       </div>
     <p><strong>Owner:</strong><%= @pet.user.name %></p>
     <p><strong>Chip:</strong><%= @pet.chip_id %></p>
@@ -20,7 +20,7 @@
 </div>
 
 
-<% if current_user == @pet.user %>
+<% if @pet.user.is current_user %>
   <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <% end %>
 

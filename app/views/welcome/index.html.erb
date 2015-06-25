@@ -10,10 +10,10 @@
 		<div class="col-sm-4 con left">
 			<div class="inner-left inner">
 				<div class="inner-inner">
-				<h3>Report your pet lost</h3>
-				<p>to your local community</p>
+				<h3 class="splash-custom">Report your pet lost</h3>
+				<p class="splash-custom">to your local community</p>
 				<% if user_signed_in? %>
-					<p><a class="divLink" href="<%= user_path(current_user) %>">Login to report your pet</a></p>
+					<p><a class="divLink splash-custom" href="<%= user_path(current_user) %>">Login to report your pet</a></p>
 				<% else %>
 					<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
 					<% end %>
@@ -22,15 +22,15 @@
 		</div>
 		<div class="col-sm-4 con center">
 			<div class="inner-center inner">
-				<h3>Found a lost furry friend?</h3>
-				<p>search our database of lost pets to contact the owner directly</p>
+				<h3 class="splash-custom">Found a lost furry friend?</h3>
+				<p class="splash-custom">search our database of lost pets to contact the owner directly</p>
 				<p><a class="divLink" href="<%= reports_path %>">Search lost pets</a></p>
 			</div>
 		</div>
 		<div class="col-sm-4 con right">
 			<div class="inner-right inner">
-				<h3>Create a profile for your pet</h3>
-				<p>like the superstar that it is!</p>
+				<h3 class="splash-custom">Create a profile for your pet</h3>
+				<p class="splash-custom">like the superstar that it is!</p>
 				<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
 			</div>
 		</div>

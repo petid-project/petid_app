@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true
   validates :password, length: { minimum: 8}, confirmation: true
   
+
   def self.create_from_omniauth(params)
     attributes = {
       email: params['info']['email'],
@@ -22,5 +23,9 @@ class User < ActiveRecord::Base
   devise  :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable, :omniauth_providers => [:facebook]
+
+def is user
+    self == user
+end
 
 end

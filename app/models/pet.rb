@@ -1,7 +1,7 @@
 class Pet < ActiveRecord::Base
   validates :name, presence: true
   belongs_to :user
-  has_many :reports
+  has_many :reports, dependent: :destroy
 
 
   # This method associates the attribute ":image" with a file attachment
@@ -14,5 +14,9 @@ class Pet < ActiveRecord::Base
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+  def age
+    Time.now.year - birth_year.to_i
+  end
 
 end

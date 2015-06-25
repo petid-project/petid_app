@@ -1,3 +1,4 @@
+<div class="panel panel-default col-xs-12">
 <%= form_for(@pet, remote: true, html: {id: "petForm"}) do |f| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
@@ -54,3 +55,4 @@
     </div>
   </div>
 <% end %>
+</div>
