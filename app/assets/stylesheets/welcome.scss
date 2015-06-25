@@ -3,6 +3,10 @@
 	margin: 0;
 	width: 100%;
 }
+body {
+  background-image: url('brickwall.png');
+  background-repeat: repeat;
+}
 #main-content {
 	background-image: url('lost_dog.jpg');
 	background-size: cover;
@@ -110,6 +114,84 @@ a.divLink {
 #about-header {
 	text-align: center;
 }
-h2#abt-paragraph {
 
+/*
+=================
+MEDIA QUERIES
+=================
+*/
+@media (max-width: 1100px) {
+  .inner {
+    width: 30rem;
+    padding: 4rem;
+
+  }
+}
+@media (max-width: 975px) {
+  .inner {
+    width: 27rem;
+    padding: 3rem;
+ }
+}
+@media (max-width: 875px) {
+  .inner {
+    width: 23rem;
+    padding: 1.5rem;
+    height: 23rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  .con {
+    margin-top: 50rem;
+  }
+  #about {
+    margin-bottom: 2.5rem;
+  }
+}
+@media (max-width: 750px) {
+  .inner {
+    width: 50rem;
+    padding: 2.5rem;
+  }
+  h3 {
+    font-size: 3.5rem;
+  }
+  p {
+    font-size: 2.5rem;
+  }
+  .con.left {
+    margin-bottom: 2.25rem;
+  }
+  .con.center {
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+  .con.right {
+    margin-top: 2.25rem;
+    margin-bottom: 0;
+  }
+  #about {
+    margin-bottom: 12rem;
+    margin-top: 255rem;
+  }
+}
+@media (max-width: 400px) {
+  .inner {
+    width: 35rem;
+    padding: 2.5rem;
+  }
+  h3 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.75rem;
+  }
+  #about {
+    margin-top: 275rem;
+    margin-bottom: 0;
+  }
 }
