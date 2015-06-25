@@ -9,18 +9,20 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
- 
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 .link-btn {
-  padding:5px;
+  padding: 5px;
   background-color: #dcdcdc;
-  border: 1px solid #666;
-  color:#000;
-  text-decoration:none;
+  color: #000;
+  text-decoration: none;
 }
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat);@import "bootstrap-sprockets";
+@import url(http://fonts.googleapis.com/css?family=Domine);
+@import "bootstrap";
+@import "welcome";
+@import "reports"
+

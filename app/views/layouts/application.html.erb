@@ -2,9 +2,12 @@
 <html>
 <head>
   <title>PetidApp</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag params[:controller] %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 <!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
 
@@ -16,8 +19,10 @@
 
 </head>
 <body>
-		<%= render partial: "layouts/header" %>
-	    <%= render partial: "layouts/flash", flash: flash %>
-		<%= yield %>
+	<div class="container">
+			<%= render partial: "layouts/header" %>
+		  <%= render partial: "layouts/flash", flash: flash %>
+			<%= yield %>
+	</div>
 </body>
 </html>

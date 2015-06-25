@@ -1,19 +1,115 @@
-#main-content {
-    width: 100%;
-    height: 100px;
+ .container {
+	padding: 0;
+	margin: 0;
+	width: 100%;
 }
-#main-content img {
-	  width: 100%;
-    height: auto;
+#main-content {
+	background-image: url('lost_dog.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 105%;
+	margin-top: -2rem;
+	background-position: 0% 25%;
+}
+header.page-header {
+	display: none;
 }
 h1.splash-custom {
+  padding-top: 15rem;
   color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12rem;
+}
+h3 {
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	font-weight: bolder;
+	font-size: 3rem;
 }
 h2.splash-custom {
 	color: white;
+	font-family: 'Domine', serif;
 }
-
+p {
+	font-family: 'Domine', serif;
+	font-size: 2rem;
+  padding-top: 2rem;
+  line-height: 2.7rem;
+}
 .splash-custom {
 	color: white;
 	text-align: center;
+}
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+.parallax__layer--back {
+  transform: translateZ(-1px) scale(2);
+
+}
+.con {
+	margin-bottom: 28rem;
+  margin-top: 47rem;
+	text-align: center;
+	color: white;
+}
+.inner {
+	background-color: #1D1D20;
+	padding: 5rem;
+	position: relative;
+	width: 35rem;
+	height: 27rem;
+	opacity: 0.75;
+	border-radius: 10px;
+	border: 2px solid #A1CF6B;
+	display: inline-block;
+	text-align: center
+}
+div.inner:hover {
+    cursor: hand;
+    cursor: pointer;
+    background-color: #E0C879;
+    color: #E87461;
+    opacity: 1;
+}
+ 
+a.divLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    /* Makes sure the link doesn't get underlined */
+    z-index: 10;
+    /* raises anchor tag above everything else in div */
+    background-color: white;
+    /*workaround to make clickable in IE */
+    opacity: 0;
+    /*workaround to make clickable in IE */
+    filter: alpha(opacity=0);
+    /*workaround to make clickable in IE */
+}
+#about{
+	margin-top: 125rem;
+
+}
+#about-header {
+	text-align: center;
+}
+h2#abt-paragraph {
+
 }
