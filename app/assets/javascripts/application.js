@@ -14,9 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
 //= require_tree .
-
-
 
 $(document).ready( function () {
     $('#table_id').DataTable();
@@ -35,6 +35,3 @@ $(document).ready( function () {
     $("#newPet").slideDown(350);
   }
 });
-
-
-
