@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   include SimpleCaptcha::ControllerHelpers
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show_contact_user, :show]
 
   # GET /reports
   # GET /reports.json
@@ -41,6 +41,7 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
+    params[:report][:date_of_loss] = Date.strptime(params[:report][:date_of_loss], "%m/%d/%Y")
     @report = Report.new(report_params)
     @report.user = current_user
 

@@ -1,8 +1,174 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body.splash{
+  background: url('brickwall.png') repeat;
+}
+#main-content{
+	background: url('lost_dog.jpg') 0% 25% no-repeat;
+	height: 105%;
+	margin-top: -2rem;
+}
+h1.splash-custom{
+  padding-top: 15rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12rem;
+}
+h3{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bolder;
+	font-size: 3rem;
+}
+h2.splash-custom{
+	font-family: 'Domine', serif;
+}
+p{
+	font-family: 'Domine', serif;
+	font-size: 2rem;
+  line-height: 2.7rem;
+}
+.splash-custom{
+	color: white;
+	text-align: center;
+}
+.parallax{
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.parallax__layer{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer--base{
+  transform: translateZ(0);
+}
+.parallax__layer--back{
+  transform: translateZ(-1px) scale(2);
+}
+.con{
+  margin: 47rem 0 28rem 0;
+	text-align: center;
+	color: white;
+}
+.inner{
+	background-color: #1D1D20;
+	padding: 5rem;
+	position: relative;
+	width: 35rem;
+	height: 27rem;
+	opacity: 0.75;
+	border-radius: 10px;
+	border: 2px solid #A1CF6B;
+	display: inline-block;
+	text-align: center;
+  &:hover {
+    cursor: pointer;
+    background-color: #E0C879;
+    color: #E87461;
+    opacity: 1;    
+  }
+} 
+a.divLink{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    z-index: 10;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+#about{
+	margin-top: 125rem;
 
-#main-content {
-	background-color: pink;
-	padding-bottom: 20rem;
+}
+#about-header{
+	text-align: center;
+}
+@media (max-width: 1100px){
+  .inner {
+    width: 30rem;
+    padding: 4rem;
+  }
+}
+@media (max-width: 975px){
+  #main-content{
+    background-position-x: -5rem;
+  }
+  .inner {
+    width: 27rem;
+    padding: 3rem;
+ }
+}
+@media (max-width: 875px){
+  #main-content{
+    background-position-x: -15rem;
+    }
+  .inner{
+    width: 23rem;
+    padding: 1.5rem;
+    height: 23rem;
+  }
+  h3{
+    font-size: 2.5rem;
+  }
+  p{
+    font-size: 1.5rem;
+  }
+  .con{
+    margin-top: 50rem;
+  }
+  #about{
+    margin-bottom: 2.5rem;
+  }
+}
+@media (max-width: 750px){
+  #main-content{
+    background-position-x: -40rem;
+  }
+  .inner{
+    width: 50rem;
+    padding: 2.5rem;
+  }
+  h3{
+    font-size: 3.5rem;
+  }
+  p{
+    font-size: 2.5rem;
+  }
+  .con.left{
+    margin-bottom: 2.25rem;
+  }
+  .con.center{
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+  .con.right{
+    margin-top: 2.25rem;
+    margin-bottom: 0;
+  }
+  #about{
+    margin: 255rem 0 12rem 0;
+  }
+}
+@media (max-width: 400px){
+  #main-content{
+    background-position-x: -48rem;
+  }
+  .inner{
+    width: 35rem;
+    padding: 2.5rem;
+  }
+  h3{
+    font-size: 3rem;
+  }
+  p{
+    font-size: 1.75rem;
+  }
+  #about{
+    margin: 275rem 0 0 0;
+  }
 }
