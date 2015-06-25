@@ -56,10 +56,10 @@ class PetsController < ApplicationController
   # DELETE /pets/1
   # DELETE /pets/1.json
   def destroy
-    @pet.reports.destroy_all unless @pet.reports.empty?
+    user = @pet.user
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to user_url(@pet.user), notice: 'Pet was successfully destroyed.' }
+      format.html { redirect_to user_url(user), notice: 'Pet was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
