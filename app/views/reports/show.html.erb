@@ -1,70 +1,69 @@
+<div class="col-xs-offset-5 col-xs-6">
+  <p>
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object custom-dog" src="<%= @report.pet.image.url(:thumb) %>" alt="placeholder dog">
+          </a>
+        </div>
+  </p>
+  <p>
+  <p>
+    <strong>Name:</strong>
+    <%= @report.pet.name %>
+  </p>
+    <strong>Date of loss:</strong>
+    <%= @report.date_of_loss.strftime("%m/%d/%Y") %>
+  </p>
 
-<p>
-  <strong>Image </strong>
-    <div class="media">
-      <div class="media-left">
-        <a href="#">
-          <img class="media-object custom-dog" src="<%= @report.pet.image.url(:thumb) %>" alt="placeholder dog">
-        </a>
-      </div>
-</p>
+  <p>
+    <strong>Location:</strong>
+    <%= @report.location %>
+  </p>
+  <p>
+    <strong>Age: </strong> <%= Time.now.year - @report.pet.birth_year.to_i %>
+  </p>
 
-<p>
-<% if current_user == @report.user %>
-  <%= link_to 'Edit Lost Report', edit_report_path(@report) %> 
-  
-<% end %>
-</p>
-<p>
-  <strong>Date of loss:</strong>
-  <%= @report.date_of_loss.strftime("%m/%d/%Y") %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @report.description %>
+  </p>
+  <p>
+    <strong>Notes:</strong>
+    <%= @report.notes %>
+  </p>
+  <p>
+    <strong>Reward $ </strong>
+    <%= @report.reward %>
+  </p>
+  <p>
+    <strong>Type </strong>
+    <%= @report.pet.pet_type %> </h3>
+  </p>
+  <p>
+    <strong>Breed </strong>
+    </strong><%= @report.pet.breed %> </li>
+  </p>
+  <p>
+    <strong>Weight </strong>
+    </strong><%= @report.pet.weight %> </li>
+  </p>
+  <p>
+    <strong>Color </strong>
+     </strong> <%= @report.pet.color%></li>
+  </p>
+  <p>
+    <strong>Chip ID: </strong>
+     </strong> <%= @report.pet.chip_id %> </li>
+  </p>
+  <p>
+  <% if current_user == @report.user %>
+    <%= link_to 'Edit Lost Report', edit_report_path(@report) %> 
+    
+  <% end %>
+  </p>
+</div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @report.location %>
-</p>
-
-<p>
-  <strong>Pet:</strong>
-  <%= @report.pet.name %>
-</p>
-<p>
-  <strong>Age: </strong> <%= Time.now.year - @report.pet.birth_year.to_i %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @report.description %>
-</p>
-<p>
-  <strong>Notes:</strong>
-  <%= @report.notes %>
-</p>
-<p>
-  <strong>Reward $ </strong>
-  <%= @report.reward %>
-</p>
-<p>
-  <strong>Type </strong>
-  <%= @report.pet.pet_type %> </h3>
-</p>
-<p>
-  <strong>Breed </strong>
-  </strong><%= @report.pet.breed %> </li>
-</p>
-<p>
-  <strong>Weight </strong>
-  </strong><%= @report.pet.weight %> </li>
-</p>
-<p>
-  <strong>Color </strong>
-   </strong> <%= @report.pet.color%></li>
-</p>
-<p>
-  <strong>Chip ID: </strong>
-   </strong> <%= @report.pet.chip_id %> </li>
-</p>
 
 
 
