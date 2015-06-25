@@ -10,14 +10,11 @@
       </ul>
     </div>
   <% end %>
-
   <div class="form-group">
-
     <div class="field">
-      <%= f.label :date_of_loss %><br>
-      <%= f.date_select :date_of_loss, {}, {:class => "form-control date-control"} %>
+      <%= f.label :date_of_loss %>
+      <%= f.text_field :date_of_loss, class: "form-control", data: { provide: 'datepicker' } %>
     </div>
-
     <div class="field">
       <%= f.label :location %><br>
       <%= f.text_field :location, class: "form-control" %>
@@ -42,4 +39,5 @@
     </div>
 
   </div>
+
 <% end %>

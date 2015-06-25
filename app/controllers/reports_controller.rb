@@ -41,6 +41,7 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
+    params[:report][:date_of_loss] = Date.strptime(params[:report][:date_of_loss], "%m/%d/%Y")
     @report = Report.new(report_params)
     @report.user = current_user
 

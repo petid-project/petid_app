@@ -75,3 +75,4 @@ gem 'mandrill-api'
 
 gem 'simple_captcha2', require: 'simple_captcha'
 
+gem 'bootstrap-datepicker-rails'
