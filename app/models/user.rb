@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   has_many :pets
   has_many :reports
+
+  validates :email, uniqueness: true, presence: true
+  validates :password, length: { minimum: 8}, confirmation: true
+  
+
   
 
   def self.create_from_omniauth(params)
