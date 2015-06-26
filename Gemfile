@@ -55,6 +55,8 @@ group :development, :test do
 
   gem 'quiet_assets'
 
+  gem "rails-erd"
+
 end
 
 gem 'dotenv-rails'
@@ -76,3 +78,4 @@ gem 'mandrill-api'
 gem 'simple_captcha2', require: 'simple_captcha'
 
 gem 'bootstrap-datepicker-rails'
+
