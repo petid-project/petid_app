@@ -1,31 +1,33 @@
 <div class="panel panel-default top-pan">
   <h1 id="report-h1">Find lost Pet Reports</h1>
 </div>
-<div class="panel panel-default custom">
-  <table class="table table-striped display" id="table_id">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Pet Name</th>
-          <th>Location</th>
-          <th>Time Reported</th>
-          <th>Contact Owner</th>
-          <th>Pet Details</th>
-        </tr>
-      </thead>
-    <tbody>
-      <% @reports.each do |report| %>
-        <tr>
-          <td>
-            <img class="media-object custom-dog thumbnail" src="<%= report.pet.image.url(:thumb) %>" alt="placeholder dog">
-          </td>
-          <td><%= report.pet.name %></td>
-          <td><%= report.location %></td>
-          <td><%= time_ago_in_words(report.updated_at) %></td>
-          <td><%= link_to 'Contact Owner', show_contact_user_path(report.id) %></td>
-          <td><%= link_to 'Pet Details', report %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="panel panel-default custom col-sm-12">
+  <div class="table-responsive">
+    <table class="table-striped display table-responsive" id="table_id">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Pet Name</th>
+            <th>Location</th>
+            <th>Time Reported</th>
+            <th>Contact Owner</th>
+            <th>Pet Details</th>
+          </tr>
+        </thead>
+      <tbody>
+        <% @reports.each do |report| %>
+          <tr>
+            <td>
+              <img class="media-object custom-dog thumbnail" src="<%= report.pet.image.url(:thumb) %>" alt="placeholder dog">
+            </td>
+            <td><%= report.pet.name %></td>
+            <td><%= report.location %></td>
+            <td><%= time_ago_in_words(report.updated_at) %></td>
+            <td><%= link_to 'Contact Owner', show_contact_user_path(report.id) %></td>
+            <td><%= link_to 'Pet Details', report %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
