@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   include SimpleCaptcha::ControllerHelpers
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_report, only: [:show, :edit, :update, :destroy, :show_contact_user, :process_contact_user]
   before_action :authenticate_user!, except: [:index, :show_contact_user, :show]
 
   # GET /reports
@@ -16,14 +16,13 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
-    @pet_id = Pet.find(params[:id])
+    @pet = Pet.find(params[:id])
 
-    if is_lost? @pet_id
-      @report_id = @pet_id.reports.last.id
+    if is_lost? @pet
+      @report_id = @pet.reports.last.id
       redirect_to report_path(@report_id), alert: "There is already a report filed for this pet."
-    elsif @pet_id.user.is current_user
+    elsif @pet.user.is current_user
       @report = Report.new
-      @pet = Pet.find(params[:id])
     else
       redirect_to reports_path, alert: "Only the user can report a lost pet."
     end
@@ -81,12 +80,9 @@ class ReportsController < ApplicationController
   end
 
   def show_contact_user
-    @report = Report.find(params[:id])
-    @user = @report.user
   end
 
   def process_contact_user
-    @report = Report.find(params[:id])
     if simple_captcha_valid?
       @content = {reporter_name: params[:reporter_name],email: params[:email], phone: params[:phone], message: params[:message]}
       MyMailer.send_found_pet_message(@report,@content).deliver_now
