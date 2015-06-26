@@ -1,5 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Pet, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+RSpec.describe Pet, type: :model do
+	it "should validate presence of name" do
+		u = Pet.new({name: nil})
+		expect(u.save).to eq(false) 
+	end 
+	it "should validate presence of user" do
+		u = Pet.new({user: nil})
+		expect(u.save).to eq(false) 
+	end 
+end 

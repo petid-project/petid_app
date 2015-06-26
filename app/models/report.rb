@@ -1,4 +1,8 @@
 class Report < ActiveRecord::Base
+  validates :date_of_loss, presence: true
+  validates :user, presence: true
+  validates :pet, presence: true
+
   belongs_to :user
   belongs_to :pet
 
