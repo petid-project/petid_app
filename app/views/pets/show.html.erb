@@ -21,7 +21,6 @@
 
 
 <% if @pet.user.is current_user %>
-  <%= link_to 'Edit', edit_pet_path(@pet) %> |
+  <%= link_to 'Edit', edit_pet_path(@pet) %> 
 <% end %>
 
-<%= link_to 'Back', pets_path %>

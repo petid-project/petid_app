@@ -2,6 +2,12 @@ class User < ActiveRecord::Base
   has_many :pets
   has_many :reports
 
+  validates :email, uniqueness: true, presence: true
+  validates :password, length: { minimum: 8}, confirmation: true
+  
+
+  
+
   def self.create_from_omniauth(params)
     attributes = {
       email: params['info']['email'],
@@ -20,8 +26,12 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable, :omniauth_providers => [:facebook]
 
-def is user
+  def is user
     self == user
-end
+  end
 
+  def first_name
+    name.split(' ')[0]
+  end
+  
 end
