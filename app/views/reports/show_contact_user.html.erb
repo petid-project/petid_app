@@ -3,15 +3,15 @@
 <%= form_tag process_contact_user_path(@report), method: 'post' do %>
 	<div class="form-group">
 		Name<br />
-    <%= text_field_tag :reporter_name, nil, placeholder: "Enter your name" %>
+    <%= text_field_tag :reporter_name, nil, placeholder: "Enter your name",  class: "form-control" %>
   </div>
 	<div class="form-group">
 		Email<br />
-    <%= email_field_tag :email, nil, :placeholder =>'Enter your email address' %>
+    <%= email_field_tag :email, nil, :placeholder =>'Enter your email address', class: "form-control" %>
   </div>
   <div class="form-group">
 		Phone Number<br />
-    <%= phone_field_tag :phone, nil, :placeholder => "Enter the best number to reach you" %>
+    <%= phone_field_tag :phone, nil, :placeholder => "Enter the best number to reach you", class: "form-control" %>
   </div>
 	<div class="form-group">
 		Message<br />
@@ -22,7 +22,7 @@
   </div>
   <br>
   <div class="actions">
-    <%= submit_tag "Send", class: "btn btn-large btn-primary" %>
+    <%= submit_tag "Send", class: "btn btn-large btn-primary"%>
   </div>
   <br>
 <% end %>
