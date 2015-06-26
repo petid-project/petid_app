@@ -8,22 +8,22 @@
     <div class="col-xs-6 col-md-8">
       <div class="thumbnail">
         <div class="caption">
-          <p><strong>Name:</strong><%= @report.pet.name %></p>
-          <p><strong>Type:</strong><%= @report.pet.pet_type %></p>
-          <p><strong>Breed:</strong><%= @report.pet.breed %></p>
-          <p><strong>Color:</strong><%= @report.pet.color %></p>
-          <p><strong>Weight:</strong><%= @report.pet.weight %></p>
-          <p><strong>Age:</strong><%= Time.now.year - @report.pet.birth_year.to_i %></p>
-          <p><strong>Chip:</strong><%= @report.pet.chip_id %></p>
+          <p><strong>Name:</strong> <%= @report.pet.name %></p>
+          <p><strong>Type:</strong> <%= @report.pet.pet_type %></p>
+          <p><strong>Breed:</strong> <%= @report.pet.breed %></p>
+          <p><strong>Color:</strong> <%= @report.pet.color %></p>
+          <p><strong>Weight:</strong> <%= @report.pet.weight %></p>
+          <p><strong>Age:</strong> <%= @report.pet.age %></p>
+          <p><strong>Chip:</strong> <%= @report.pet.chip_id %></p>
         </div>
       </div>
         <div class="caption">
 
-          <p><strong>Lost Date:</strong><%= @report.date_of_loss.strftime("%m/%d/%Y") %></p>
-          <p><strong>Lost Location:</strong><%= @report.location %></p>
-          <p><strong>Reward:</strong><%= @report.reward %></p>
-          <p><strong>Notes:</strong><%= @report.reward %></p>
-          <p><strong>Description:</strong><%= @report.notes %></p>
+          <p><strong>Lost Date:</strong> <%= @report.date_of_loss.strftime("%m/%d/%Y") %></p>
+          <p><strong>Lost Location:</strong> <%= @report.location %></p>
+          <p><strong>Reward:</strong> <%= @report.reward %></p>
+          <p><strong>Notes:</strong> <%= @report.reward %></p>
+          <p><strong>Description:</strong> <%= @report.notes %></p>
         </div>
   </div>
   </div>

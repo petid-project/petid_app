@@ -19,6 +19,7 @@
         <% if user_signed_in? %>
           <h3> Welcome back, <%= current_user.first_name %></h3>
           <%= link_to 'Your Account', current_user, class: 'link-btn splash-btn signup btn' %>
+          <%= link_to 'Logout', sign_out_path, class: 'link-btn splash-btn login btn' %>
         <% else %>
 				  <h3 class="splash-custom">Login or Sign up</h3>
 				  <p class="splash-custom"></p>

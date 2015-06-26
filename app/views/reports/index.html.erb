@@ -16,7 +16,7 @@
       <% @reports.each do |report| %>
         <tr>
           <td>
-            <img class="media-object custom-dog" src="<%= report.pet.image.url(:thumb) %>" alt="placeholder dog">
+            <img class="media-object custom-dog thumbnail" src="<%= report.pet.image.url(:thumb) %>" alt="placeholder dog">
           </td>
           <td><%= report.pet.name %></td>
           <td><%= report.location %></td>
