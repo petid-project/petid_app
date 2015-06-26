@@ -14,6 +14,3 @@ RSpec.describe Report, type: :model do
 		expect(u.save).to eq(false) 
 	end 
 end 
-
-
-
