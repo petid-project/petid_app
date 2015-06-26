@@ -9,4 +9,9 @@ RSpec.describe Pet, type: :model do
 		u = Pet.new({user: nil})
 		expect(u.save).to eq(false) 
 	end 
+	it "should validate presence of type" do
+		u = Pet.new({user: nil})
+		expect(u.save).to eq(false) 
+	end 
+	
 end 
