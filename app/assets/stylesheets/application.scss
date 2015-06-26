@@ -56,14 +56,18 @@ img.bg.puppy{
 body{
   background: url('https://petid-assets.s3.amazonaws.com/images/original/brickwall.png') repeat;
 }
-h1, h2, th, input{
+h1, h2, th, a, input{
   font-family: 'Montserrat', sans-serif;
 }
-h3, h4, p, a, td, label{
+h3, h4, p, td, label{
   font-family: 'Domine', serif;
 }
 a:hover{
   text-decoration: none;
+  color: #E87461;
+}
+.edit-link{
+  background-color: #E0C879;
 }
 /*Sign In*/
 div.register-flow{

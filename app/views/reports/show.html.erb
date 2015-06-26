@@ -31,7 +31,7 @@
 <div>
   <p>
   <% if @report.user.is current_user %>
-    <%= link_to 'Edit Lost Report', edit_report_path(@report) %>
+    <%= link_to 'Edit Lost Report', edit_report_path(@report), class: "link-btn-user edit-link link-btn" %>
   <% end %>
 </div>
 </div>
