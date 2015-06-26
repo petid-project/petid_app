@@ -34,6 +34,7 @@
   text-decoration: none;
   width: 100%;
   font-size: 1.5rem;
+  margin: -5px 0 14px 0;
 }
 img.bg {
   /* Set rules to fill background */
@@ -46,6 +47,39 @@ img.bg {
   
   /* Set up positioning */
   position: fixed;
-  top: 0;
+  top: -250px;
   left: 0;
+}
+h1, h2, th, input{
+  font-family: 'Montserrat', sans-serif;
+}
+h3, h4, p, a, td, label{
+  font-family: 'Domine', serif;
+}
+a:hover{
+  text-decoration: none;
+}
+/*Sign In*/
+div#new-session{
+  background-color: rgba(200,200,200,0.5);
+  margin-top: 5em;
+}
+input#user_remember_me {
+  margin-top: -6px;
+  margin-bottom: 3px;
+}
+@media (max-width: 1330px){
+  img.bg{
+    top: -150px;
+  }
+}
+@media (max-width: 1200px){
+  img.bg{
+    top: -70px;
+  }
+}
+@media (max-width: 1060px){
+  img.bg{
+    top: -10px;
+  }
 }

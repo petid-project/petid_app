@@ -16,8 +16,12 @@
 
     <% if devise_mapping.rememberable? -%>
     <div class="form-group">
+      <div class="col-xs-4">
       <%= f.label :remember_me %>
+      </div>
+      <div class="col-xs-2">
       <%= f.check_box :remember_me, class: "cust-chk" %>
+      </div>
     </div>
     <% end -%>
 
