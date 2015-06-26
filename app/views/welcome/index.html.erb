@@ -8,35 +8,39 @@
 <div id="brick">
 	<div class="parallax__layer parallax__layer--back" id="boxes">
 		<div class="col-sm-4 con left">
-			<div class="inner-left inner">
-				<div class="inner-inner">
-				<h3 class="splash-custom">Report your pet lost</h3>
-				<p class="splash-custom">to your local community</p>
-				<% if user_signed_in? %>
-					<p><a class="divLink splash-custom" href="<%= user_path(current_user) %>">Login to report your pet</a></p>
-				<% else %>
-					<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
-					<% end %>
-				</div>
-			</div>
-		</div>
+      <div class="inner-left inner">
+        <h3 class="splash-custom">Found a furry friend?</h3>
+        <p class="splash-custom">search our database of lost pets to contact the owner directly</p>
+        <p class="splash-custom"><a class="divLink" href="<%= reports_path %>">Search lost pets</a></p>
+      </div>
+    </div>
 		<div class="col-sm-4 con center">
 			<div class="inner-center inner">
-				<h3 class="splash-custom">Found a lost furry friend?</h3>
-				<p class="splash-custom">search our database of lost pets to contact the owner directly</p>
-				<p><a class="divLink" href="<%= reports_path %>">Search lost pets</a></p>
-			</div>
-		</div>
-		<div class="col-sm-4 con right">
+        <% if user_signed_in? %>
+          <h3> Welcome back, <%= current_user.first_name %></h3>
+          <%= link_to 'Your Account', current_user, class: 'link-btn splash-btn signup btn' %>
+        <% else %>
+				  <h3 class="splash-custom">Login or Sign up</h3>
+				  <p class="splash-custom"></p>
+          <%= link_to 'Sign up', new_user_registration_path, class: 'link-btn splash-btn signup btn' %>
+          <%= link_to 'Login', new_user_session_path, class: 'link-btn splash-btn login btn' %>
+        <% end %>
+        </div>
+      </div>
+    <div class="col-sm-4 con right">
 			<div class="inner-right inner">
-				<h3 class="splash-custom">Create a profile for your pet</h3>
-				<p class="splash-custom">like the superstar that it is!</p>
-				<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
+    			<h3 class="splash-custom">Report your pet lost</h3>
+    			<p class="splash-custom">to your local community</p>
+    			<% if user_signed_in? %>
+    				<p><a class="divLink splash-custom" href="<%= user_path(current_user) %>">Login to report your pet</a></p>
+    			<% else %>
+    				<p><a class="divLink" href="<%= new_user_registration_path %>">Login to report your pet</a></p>
+    			<% end %>
 			</div>
-		</div>
+    </div>
 </div>
 <div class="col-sm-8 col-sm-offset-2" id="about">
-	<h2 id="about-header">About</h2>
-		<p id="abt-paragraph">Pet ID helps pet owners find their lost pets. How does it work? A Pet owner simply creates a account and registers their pets. Note that any personal information won't be shared. After siging in and adding a pet, the owner can add a photo and a full description of their pet. Later they can easily update their pets description, and report their pets as lost if needed. After the pet is reported lost, the pet appears within to the lost pet listing. The lost pet listing can be seen by anyone, meaning that a login is not required. The lost pet listing includes lost pet photos as well as the pet's names and the locations where they were lost. Once the pet is identified, email can sent to the owner. The sender's contact information is included within the email sent. The pet owner can then contact the sender and reunite with their pet and update the pet as found. Awesome, Fluffy is heading back home!</p>
+	<h2 class="splash-custom about" id="about-header">About</h2>
+		<p class="splash-custom about" id="abt-paragraph">Pet ID helps pet owners find their lost pets. How does it work? A Pet owner simply creates a account and registers their pets. Note that any personal information won't be shared. After siging in and adding a pet, the owner can add a photo and a full description of their pet. Later they can easily update their pets description, and report their pets as lost if needed. After the pet is reported lost, the pet appears within to the lost pet listing. The lost pet listing can be seen by anyone, meaning that a login is not required. The lost pet listing includes lost pet photos as well as the pet's names and the locations where they were lost. Once the pet is identified, email can sent to the owner. The sender's contact information is included within the email sent. The pet owner can then contact the sender and reunite with their pet and update the pet as found. Awesome, Fluffy is heading back home!</p>
 	</div>
 	</div>

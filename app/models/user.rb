@@ -26,8 +26,12 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable, :omniauth_providers => [:facebook]
 
-def is user
+  def is user
     self == user
-end
+  end
 
+  def first_name
+    name.split(' ')[0]
+  end
+  
 end
