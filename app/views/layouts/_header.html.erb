@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       	<% if user_signed_in? %>
-          <li><a href="<%= user_path(current_user.id) %>">Welcome back, <%= current_user.name %></a></li>
+          <li><a href="<%= user_path(current_user.id) %>">Welcome back, <%= current_user.first_name %></a></li>
           <li><a href="<%= sign_out_path %>">Log out</a></li>
         <% else %>
           <li><a href="<%= new_user_session_path %>">Login</a></li>

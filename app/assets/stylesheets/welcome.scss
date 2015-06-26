@@ -14,6 +14,9 @@ h3.splash-custom{
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bolder;
 	font-size: 3rem;
+  &:hover{
+    color: #E87461;
+  }
 }
 h2.splash-custom{
 	font-family: 'Domine', serif;
@@ -50,7 +53,11 @@ p.splash-custom{
   margin: 45rem 0 28rem 0;
 	text-align: center;
 	color: white;
+  &:hover{
+    color: #E87461;
+  };
 }
+
 .inner{
   background-color: rgba(39, 39, 39,0.9);
   padding: 5rem;
@@ -65,7 +72,6 @@ p.splash-custom{
   &:hover {
     background-color: #E0C879;
     color: #E87461;
-    opacity: 1;    
   }
 } 
 a.divLink{
