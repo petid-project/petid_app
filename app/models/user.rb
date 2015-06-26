@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def first_name
-    name.split(' ')[0]
+    return name.split(' ')[0] if name      
   end
   
 end
