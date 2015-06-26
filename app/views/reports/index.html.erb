@@ -8,6 +8,7 @@
           <th>Image</th>
           <th>Pet Name</th>
           <th>Location</th>
+          <th>Time Reported</th>
           <th>Contact Owner</th>
           <th>Pet Details</th>
         </tr>
@@ -20,6 +21,7 @@
           </td>
           <td><%= report.pet.name %></td>
           <td><%= report.location %></td>
+          <td><%= time_ago_in_words(report.updated_at) %></td>
           <td><%= link_to 'Contact Owner', show_contact_user_path(report.id) %></td>
           <td><%= link_to 'Pet Details', report %></td>
         </tr>
